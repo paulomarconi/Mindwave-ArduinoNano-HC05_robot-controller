@@ -1,0 +1,24 @@
+/* Effective stylesheet produced by snapshot save */
+.igtranslator-bubble { margin: 0px; width: 100%; height: auto; color: black; min-width: 260px; border-radius: 2px; z-index: 2000000000; table-layout: fixed; border-spacing: 2px; padding: 2px 2px 0px; border-collapse: separate; font: 13px arial,sans-serif; }
+.igtranslator-bubble tr { width: 100%; height: auto; }
+.igtranslator-bubble::after, .igtranslator-bubble::before { width: 0px; height: 0px; content: ""; position: absolute; border: medium solid transparent; }
+.igtranslator-bubble::after { top: -4px; left: 14px; border-width: 7px; }
+.igtranslator-bubble::before { top: -7px; left: 13px; border-width: 8px; }
+.igtranslator-header { margin: 0px; border: 0px none; padding: 0px; width: 100%; height: 20px; font-size: 120%; min-width: 100px; text-align: center; background-repeat: no-repeat; background-position: center center; background-size: auto 11px !important; }
+.igtranslator-header pre { border: 0px none; margin: 0px; padding: 0px; width: auto; display: inline-block; white-space: pre-line; font-family: arial,sans-serif; }
+.igtranslator-content { margin: 0px; padding: 0px; width: 100%; height: 100%; display: none; border-left: 0px none; border-right: 0px none; min-height: 80px; overflow-y: auto; min-width: 260px; border-bottom: 0px none; border-spacing: 2px; border-collapse: separate; font: 13px arial,sans-serif; background-repeat: no-repeat; background-position: center center; }
+.igtranslator-footer { border: 0px none; margin: 0px; padding: 0px; }
+.igtranslator-footer td { margin: 0px; padding: 0px; width: 20%; height: 20px; opacity: 0.5; min-width: 32px; cursor: pointer; border-radius: 1px; background-size: 16px 16px; background-repeat: no-repeat; transition: all 0.3s ease 0s; background-position: center center; }
+.igtranslator-footer td:hover { opacity: 1; }
+@keyframes bounceIn {
+  0% { opacity: 0; transform: scale(0.3); }
+  50% { opacity: 1; transform: scale(1.05); }
+  70% { transform: scale(0.9); }
+  100% { transform: scale(1); }
+}
+@keyframes bounceIn {
+  0% { opacity: 0; transform: scale(0.3); }
+  50% { opacity: 1; transform: scale(1.05); }
+  70% { transform: scale(0.9); }
+  100% { transform: scale(1); }
+}

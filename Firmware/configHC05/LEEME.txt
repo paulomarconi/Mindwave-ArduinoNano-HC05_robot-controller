@@ -1,0 +1,3 @@
+https://www.pantechsolutions.net/brain-computer-interface/interfacing-mindwave-mobile-with-arduino
+
+Ojo con el password, es 0000, y para entrar en modo de configuración en el HC-05 debes encender el módulo manteniendo apretado el pulsador del módulo al mismo tiempo.

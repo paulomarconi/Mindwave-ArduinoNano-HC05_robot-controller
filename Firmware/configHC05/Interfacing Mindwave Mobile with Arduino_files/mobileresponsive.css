@@ -1,0 +1,31 @@
+/* Effective stylesheet produced by snapshot save */
+@media (min-width: 768px) and (max-width: 992px) {
+  .footer ul.links li { padding: 0px 2px; }
+  .footer-static-title h3 { font-size: 13px; }
+  .header-cart-mini .cart-mini-title a.shopping-cart { width: 150px; }
+  .header-toplinks .links { text-align: center; }
+  .header-toplinks .links li { padding: 0px 3px; }
+  .header-toplinks .links li a, p.welcome-msg, .language-currency, .drop-lang li a, .drop-lang .sub-lang li a, .drop-currency li a { font-size: 12px; }
+  .header-cart-mini .cart-mini-title .cart-count .asc, .header-cart-mini .cart-mini-title .cart-count .price { display: none; }
+  .header-cart-mini { margin: 0px; }
+  .block-layered-nav .block-content { margin: 0px; }
+}
+@media (max-width: 767px) {
+  .container { padding: 0px 15px; }
+  .header { text-align: center; padding: 20px 0px; }
+  .header-toplinks { float: none; margin: 0px; text-align: center; clear: both; }
+  .quick-access {  }
+  p.welcome-msg { float: none; text-align: center; margin: 0px; }
+  .header-toplinks .links { left: 0px; margin: 0px; }
+  .header a.logo { float: none; text-align: center; }
+  .header-cart-mini { width: 200px; margin: 15px auto auto; float: none; }
+  .header-cart-mini .top-cart-content { right: 50%; margin-right: -135px; }
+  .footer, .footer address { text-align: center; }
+  .footer address { margin-bottom: 10px; }
+  .social { float: none; }
+  .footer-information .f-col { margin-bottom: 15px; }
+  .social li { float: none; display: inline; }
+}
+@media (max-width: 679px) {
+  .mini_cart_ajax { z-index: 999; }
+}

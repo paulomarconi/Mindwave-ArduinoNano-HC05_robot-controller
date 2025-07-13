@@ -1,0 +1,1543 @@
+<!DOCTYPE html><!-- Source is https://www.pantechsolutions.net/brain-computer-interface/interfacing-mindwave-mobile-with-arduino --><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Interfacing Mindwave Mobile with Arduino</title>
+<meta name="description" content="Interfacing Mindwave Mobile with Arduino
+">
+<meta name="keywords" content="Interfacing Mindwave Mobile with Arduino
+">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<link rel="icon" href="urn:not-loaded:https://www.pantechsolutions.net/media/favicon/default/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="urn:not-loaded:https://www.pantechsolutions.net/media/favicon/default/favicon.ico" type="image/x-icon">
+<!--[if lt IE 7]>
+<script type="text/javascript">
+//<![CDATA[
+    var BLANK_URL = 'https://www.pantechsolutions.net/js/blank.html';
+    var BLANK_IMG = 'https://www.pantechsolutions.net/js/spacer.gif';
+//]]>
+</script>
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="Interfacing%20Mindwave%20Mobile%20with%20Arduino_files/mobileresponsive.css" media="all">
+<!--link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,600,400italic,600italic,700,700italic,800' rel='stylesheet' type='text/css'-->
+<link rel="stylesheet" type="text/css" href="Interfacing%20Mindwave%20Mobile%20with%20Arduino_files/styles.css" media="all">
+	<!--link type="text/css" rel="stylesheet" href="https://www.pantechsolutions.net/skin/frontend/tv_magewear_package/tv_magewear/css/shCoreDefault.css" /-->
+<!--link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/-->
+<link rel="stylesheet" type="text/css" href="Interfacing%20Mindwave%20Mobile%20with%20Arduino_files/043c7b8c8d887b8da46b1499fb0961f7.css">
+<link rel="stylesheet" type="text/css" href="Interfacing%20Mindwave%20Mobile%20with%20Arduino_files/620d266f735a864320a7f650f3b017ea.css" media="all">
+<link rel="stylesheet" type="text/css" href="Interfacing%20Mindwave%20Mobile%20with%20Arduino_files/07b4cc6a295a03262dffe8a6f03bf649.css" media="print">
+<script async="" src="Interfacing%20Mindwave%20Mobile%20with%20Arduino_files/fbevents.js"></script><script src="Interfacing%20Mindwave%20Mobile%20with%20Arduino_files/messageswidgetshell.js" type="text/javascript" id="hubspot-messages-loader" data-loader="hs-scriptloader" data-hsjs-portal="579306" data-hsjs-env="prod"></script><script src="Interfacing%20Mindwave%20Mobile%20with%20Arduino_files/579306.js" type="text/javascript" id="hs-analytics"></script><script src="Interfacing%20Mindwave%20Mobile%20with%20Arduino_files/collectedforms.js" type="text/javascript" id="CollectedForms-579306" crossorigin="anonymous" data-leadin-portal-id="579306" data-leadin-env="prod" data-loader="hs-scriptloader" data-hsjs-portal="579306" data-hsjs-env="prod"></script><script src="Interfacing%20Mindwave%20Mobile%20with%20Arduino_files/fb.js" type="text/javascript" id="hs-ads-pixel-579306" data-ads-portal-id="579306" data-ads-env="prod" data-loader="hs-scriptloader" data-hsjs-portal="579306" data-hsjs-env="prod"></script><script src="Interfacing%20Mindwave%20Mobile%20with%20Arduino_files/leadflows.js" type="text/javascript" id="LeadFlows-579306" crossorigin="anonymous" data-leadin-portal-id="579306" data-leadin-env="prod" data-loader="hs-scriptloader" data-hsjs-portal="579306" data-hsjs-env="prod"></script><script type="text/javascript" async="" src="Interfacing%20Mindwave%20Mobile%20with%20Arduino_files/widget.js"></script><script async="" src="Interfacing%20Mindwave%20Mobile%20with%20Arduino_files/analytics.js"></script><script type="text/javascript" src="Interfacing%20Mindwave%20Mobile%20with%20Arduino_files/7733aa8721b5a04002dfb110ce2c610f.js"></script><style><!--
+/* Effective stylesheet produced by snapshot save */
+--></style><style id="css-ddslick" type="text/css"><!--
+/* Effective stylesheet produced by snapshot save */
+--></style>
+<link href="https://www.pantechsolutions.net/blog/rss/index/store_id/1/" title="Blog" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="#">
+<!--[if lt IE 9]>
+<link rel="stylesheet" type="text/css" href="https://www.pantechsolutions.net/media/css_secure/e541be6a516c67d0fb57bb921f54b824.css" media="all" />
+<script type="text/javascript" src="https://www.pantechsolutions.net/media/js/aad888de3cd70ba5347ed8b96565aa08.js"></script>
+<![endif]-->
+<!--[if lt IE 7]>
+<script type="text/javascript" src="https://www.pantechsolutions.net/media/js/bc1a756fc122ecc90966b9c188f70a6e.js"></script>
+<![endif]-->
+
+<!-- <script src="https://cdn.webrupee.com/js" type="text/javascript"></script> 
+<script src="https://www.pantechsolutions.net/skin/frontend/base/default/js/rupyaINR.min.js" type="text/javascript"></script>-->
+<script src="Interfacing%20Mindwave%20Mobile%20with%20Arduino_files/script.js" type="text/javascript"></script>
+<!--script type="text/javascript" src="https://www.pantechsolutions.net/skin/frontend/tv_magewear_package/tv_magewear/scripts/shCore.js"></script>
+<script type="text/javascript" src="https://www.pantechsolutions.net/skin/frontend/tv_magewear_package/tv_magewear/scripts/shBrushJScript.js"></script-->
+
+
+<script type="text/javascript"><!--
+/* Script removed by snapshot save */
+--></script>
+
+<script type="text/javascript"><!--
+/* Script removed by snapshot save */
+--></script>
+    <!--Aromicon Google Universal Analytics Section start -->
+    <script type="text/javascript"><!--
+/* Script removed by snapshot save */
+--></script>
+        <!--Aromicon Google Universal Analytics Section end -->
+<script type="text/javascript"><!--
+/* Script removed by snapshot save */
+--></script><script type="text/javascript"><!--
+/* Script removed by snapshot save */
+--></script>
+
+<script><!--
+/* Script removed by snapshot save */
+--></script>
+
+<!--[if lte IE 9]>
+<script>
+    document.addEventListener("DOMContentLoaded", function(e) {
+        algoliaBundle.$(function ($) {
+            window.algoliaConfig.autofocus = false;
+        });
+    });
+</script>
+<![endif]-->
+
+                        
+                            <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+                            <!--[if lte IE 9]>
+                                <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+                            <![endif]-->
+                        
+                    <script type="text/javascript"><!--
+/* Script removed by snapshot save */
+--></script><script type="text/javascript"><!--
+/* Script removed by snapshot save */
+--></script><script src="Interfacing%20Mindwave%20Mobile%20with%20Arduino_files/l.js" async=""></script>
+<script type="text/javascript"><!--
+/* Script removed by snapshot save */
+--></script>
+
+<style><!--
+/* Effective stylesheet produced by snapshot save */
+--></style><link href="https://client.relay.crisp.chat/" rel="preconnect" crossorigin=""><link href="https://client.crisp.chat/" rel="preconnect" crossorigin=""><link href="https://image.crisp.chat/" rel="preconnect" crossorigin=""><script src="Interfacing%20Mindwave%20Mobile%20with%20Arduino_files/client.js" type="text/javascript" async=""></script><link href="Interfacing%20Mindwave%20Mobile%20with%20Arduino_files/client_default.css" type="text/css" rel="stylesheet"><style type="text/css" id="igtranslator-color"></style></head>
+<body class=" catalog-product-view catalog-product-view product-interfacing-mindwave-mobile-with-arduino categorypath-brain-computer-interface category-brain-computer-interface"><style type="text/css"><!--
+/* Effective stylesheet produced by snapshot save */
+--></style>
+
+<script><!--
+/* Script removed by snapshot save */
+--></script>
+
+<script><!--
+/* Script removed by snapshot save */
+--></script>
+
+
+<div class="wrapper">
+        <noscript>
+        <div class="global-site-notice noscript">
+            <div class="notice-inner">
+                <p>
+                    <strong>JavaScript seems to be disabled in your browser.</strong><br />
+                    You must have JavaScript enabled in your browser to utilize the functionality of this website.                </p>
+            </div>
+        </div>
+    </noscript>
+    <div class="page">
+        
+<header class="header-wrapper">
+        <div class="header-quick-access">
+        <div class="container">
+            <div class="container-inner">
+                <div class="quick-access">
+                    <div class="header-currency">
+                                            </div>
+                    <div class="header-language">
+                                                </div>
+                    <div class="header-toplinks">
+                        <ul class="links">
+                        <li class="first"><a href="https://www.pantechsolutions.net/customer/account/" title="Account">Account</a></li>
+                                <li><a href="https://www.pantechsolutions.net/wishlist/" title="Wishlist">Wishlist</a></li>
+                                <li><a href="https://www.pantechsolutions.net/checkout/cart/" title="My Cart" class="top-link-cart">My Cart</a></li>
+                                <li><a href="https://www.pantechsolutions.net/checkout/onepage" title="Checkout" class="top-link-checkout">Checkout</a></li>
+                                <li class=" last"><a href="https://www.pantechsolutions.net/customer/account/login/referer/aHR0cHM6Ly93d3cucGFudGVjaHNvbHV0aW9ucy5uZXQvYnJhaW4tY29tcHV0ZXItaW50ZXJmYWNlL2ludGVyZmFjaW5nLW1pbmR3YXZlLW1vYmlsZS13aXRoLWFyZHVpbm8_X19fU0lEPVU,/" title="Login">Login</a></li>
+                                                        <li class="login-register">
+                    <a href="https://www.pantechsolutions.net/customer/account/create/" title="Customer Register">or Register</a>
+                    </li>
+                    </ul>
+                    </div>
+                    <p class="welcome-msg"> </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header">
+        <div class="container">
+            <div class="container-inner">
+                <div class="page-header-content">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                                                        <a href="https://www.pantechsolutions.net/" title="Pantech Solutions" class="logo"><strong>Pantech Solutions</strong><img src="Interfacing%20Mindwave%20Mobile%20with%20Arduino_files/logo.png" alt="Pantech Solutions"></a>
+                                                    </div>
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                <form id="search_mini_form" action="https://www.pantechsolutions.net/catalogsearch/result/" method="get">
+        <div id="algolia-searchbox">
+            <label for="search">Search:</label>
+            <span class="algolia-autocomplete" style="position: relative; display: inline-block; direction: ltr;" id="algolia-autocomplete-tt"><input id="search" name="q" class="input-text algolia-search-input aa-input" autocomplete="off" spellcheck="false" autocorrect="off" autocapitalize="off" placeholder="Search for products, categories, ..." role="combobox" aria-autocomplete="list" aria-expanded="false" aria-labelledby="search" aria-owns="algolia-autocomplete-listbox-0" style="position: relative; vertical-align: top;" dir="auto" type="text"><pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: &quot;Helvetica Neue&quot;,Helvetica,Arial,sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: 0px; text-indent: 0px; text-rendering: optimizelegibility; text-transform: none;"></pre></span>
+            <span class="clear-cross clear-query-autocomplete"></span>
+            <span id="algolia-glass" class="magnifying-glass" width="24" height="24"></span>
+        </div>
+    </form>
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                             <div class="header-cart-mini">
+                                <div class="topcart-mini-container">
+                                    <div id="mini_cart_block">
+    <div class="block-cart mini_cart_ajax">
+            <div class="block-cart">
+                                <div class="cart-mini-title">
+                    <a class="shopping-cart" href="https://www.pantechsolutions.net/checkout/cart/" rel="tooltip" data-original-title="">
+                    My Bag                    <span class="cart-count">0 item(s) <span class="asc"> - </span>					<span class="price">0.00</span>
+					</span>
+                   <span class="cart-qty">0</span>
+                   <span class="arrows"></span>
+                    </a>
+                </div>
+                <div class="top-cart-content">
+                                                                <p class="empty">You have no items in your shopping cart.</p>
+                                        <div class="top-subtotal">Subtotal: 					<span class="price">0.00</span>
+					</div>
+                                    </div>
+            </div>
+
+    </div>
+</div>
+<script><!--
+/* Script removed by snapshot save */
+--></script>
+<style><!--
+/* Effective stylesheet produced by snapshot save */
+--></style>
+<script type="text/javascript"><!--
+/* Script removed by snapshot save */
+--></script>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+<nav class="nav-container">
+        <div class="container">
+                    <div class="nav-mobilemenu-container visible-xs">
+                <div class="navbar">
+                        <div id="navbar-inner" class="navbar-inner navbar-inactive">
+                                <div class="menu-mobile">
+                                    <a class="btn btn-navbar navbar-toggle" rel="tooltip" data-original-title="">
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                    </a>
+                                    <span class="brand navbar-brand">Menu</span>
+                                </div>
+                                <ul id="nav-mobilemenu" class="mobilemenu nav-collapse collapse">
+                                       <li class="blog level0 level-top"><a href="https://www.pantechsolutions.net/"><span>Home</span></a></li> <li class="level0 nav-1 level-top first parent">
+<a href="https://www.pantechsolutions.net/products" class="level-top">
+<span>Products</span>
+</a>
+<ul class="level0" style="display: none;">
+<li class="level1 nav-1-1 first parent">
+<a href="https://www.pantechsolutions.net/cpld-fpga-boards">
+<span>CPLD/FPGA Boards</span>
+</a>
+<ul class="level1" style="display: none;">
+<li class="level2 nav-1-1-1 first last">
+<a href="https://www.pantechsolutions.net/fpga-tutorials">
+<span>Tutorial</span>
+</a>
+</li>
+</ul>
+<span class="head"><a href="javascript:void(0);"></a></span></li><li class="level1 nav-1-2 parent">
+<a href="https://www.pantechsolutions.net/microcontroller-boards">
+<span>Microcontroller Boards</span>
+</a>
+<ul class="level1" style="display: none;">
+<li class="level2 nav-1-2-2 first last">
+<a href="https://www.pantechsolutions.net/microcontroller-tutorials">
+<span>Tutorial</span>
+</a>
+</li>
+</ul>
+<span class="head"><a href="javascript:void(0);"></a></span></li><li class="level1 nav-1-3 parent">
+<a href="https://www.pantechsolutions.net/dsp-dsc-boards">
+<span>DSP/DSC Boards</span>
+</a>
+<ul class="level1" style="display: none;">
+<li class="level2 nav-1-3-3 first last">
+<a href="https://www.pantechsolutions.net/dsp-dsc-tutorials">
+<span>Tutorial</span>
+</a>
+</li>
+</ul>
+<span class="head"><a href="javascript:void(0);"></a></span></li><li class="level1 nav-1-4">
+<a href="https://www.pantechsolutions.net/sensors">
+<span>Sensors</span>
+</a>
+</li><li class="level1 nav-1-5">
+<a href="https://www.pantechsolutions.net/robotics">
+<span>Robotics</span>
+</a>
+</li><li class="level1 nav-1-6 parent">
+<a href="https://www.pantechsolutions.net/power-electronics-and-drives">
+<span>Power Electronics &amp; Drives</span>
+</a>
+<ul class="level1" style="display: none;">
+<li class="level2 nav-1-6-4 first last">
+<a href="https://www.pantechsolutions.net/powerelectronics-drives-tutorials">
+<span>Tutorial</span>
+</a>
+</li>
+</ul>
+<span class="head"><a href="javascript:void(0);"></a></span></li><li class="level1 nav-1-7 parent">
+<a href="https://www.pantechsolutions.net/measurement-labs">
+<span>Measurement labs</span>
+</a>
+<ul class="level1" style="display: none;">
+<li class="level2 nav-1-7-5 first last">
+<a href="https://www.pantechsolutions.net/measurement-labs-tutorials">
+<span>Tutorial</span>
+</a>
+</li>
+</ul>
+<span class="head"><a href="javascript:void(0);"></a></span></li><li class="level1 nav-1-8 parent">
+<a href="https://www.pantechsolutions.net/control-system">
+<span>Control systems</span>
+</a>
+<ul class="level1" style="display: none;">
+<li class="level2 nav-1-8-6 first last">
+<a href="https://www.pantechsolutions.net/control-systems-tutorials">
+<span>Tutorial</span>
+</a>
+</li>
+</ul>
+<span class="head"><a href="javascript:void(0);"></a></span></li><li class="level1 nav-1-9 parent">
+<a href="https://www.pantechsolutions.net/interface-cards">
+<span>Interface cards</span>
+</a>
+<ul class="level1" style="display: none;">
+<li class="level2 nav-1-9-7 first last">
+<a href="https://www.pantechsolutions.net/interface-cards-tutorials">
+<span>Tutorial</span>
+</a>
+</li>
+</ul>
+<span class="head"><a href="javascript:void(0);"></a></span></li><li class="level1 nav-1-10 parent">
+<a href="https://www.pantechsolutions.net/programmers-and-emulators">
+<span>Programmers &amp; emulators</span>
+</a>
+<ul class="level1" style="display: none;">
+<li class="level2 nav-1-10-8 first last">
+<a href="https://www.pantechsolutions.net/programmers-emulators-tutorial">
+<span>Tutorial</span>
+</a>
+</li>
+</ul>
+<span class="head"><a href="javascript:void(0);"></a></span></li><li class="level1 nav-1-11">
+<a href="https://www.pantechsolutions.net/diy-tools">
+<span>DIY Tools</span>
+</a>
+</li><li class="level1 nav-1-12 parent">
+<a href="https://www.pantechsolutions.net/fiber-optics">
+<span>Fiber optics</span>
+</a>
+<ul class="level1" style="display: none;">
+<li class="level2 nav-1-12-9 first last">
+<a href="https://www.pantechsolutions.net/fiber-optics-tutorials">
+<span>Tutorial</span>
+</a>
+</li>
+</ul>
+<span class="head"><a href="javascript:void(0);"></a></span></li><li class="level1 nav-1-13 parent">
+<a href="https://www.pantechsolutions.net/power-supplies">
+<span>Power Supplies</span>
+</a>
+<ul class="level1" style="display: none;">
+<li class="level2 nav-1-13-10 first last">
+<a href="https://www.pantechsolutions.net/power-supplies-tutorials">
+<span>Tutorial</span>
+</a>
+</li>
+</ul>
+<span class="head"><a href="javascript:void(0);"></a></span></li><li class="level1 nav-1-14 parent">
+<a href="https://www.pantechsolutions.net/wireless-boards">
+<span>Wireless boards</span>
+</a>
+<ul class="level1" style="display: none;">
+<li class="level2 nav-1-14-11 first last">
+<a href="https://www.pantechsolutions.net/wireless-tutorials">
+<span>Tutorial</span>
+</a>
+</li>
+</ul>
+<span class="head"><a href="javascript:void(0);"></a></span></li><li class="level1 nav-1-15 parent">
+<a href="https://www.pantechsolutions.net/communication-boards">
+<span>Communication Boards</span>
+</a>
+<ul class="level1" style="display: none;">
+<li class="level2 nav-1-15-12 first last">
+<a href="https://www.pantechsolutions.net/communication-tutorials">
+<span>Tutorial</span>
+</a>
+</li>
+</ul>
+<span class="head"><a href="javascript:void(0);"></a></span></li><li class="level1 nav-1-16">
+<a href="https://www.pantechsolutions.net/basic-electronics-lab">
+<span>Basic Electronics Lab</span>
+</a>
+</li><li class="level1 nav-1-17">
+<a href="https://www.pantechsolutions.net/wearable-electronics">
+<span>Wearable electronics</span>
+</a>
+</li><li class="level1 nav-1-18 parent">
+<a href="https://www.pantechsolutions.net/power-electronics">
+<span>Power Electronics</span>
+</a>
+<ul class="level1" style="display: none;">
+<li class="level2 nav-1-18-13 first last">
+<a href="https://www.pantechsolutions.net/powerelectronics-tutorials">
+<span>Tutorial</span>
+</a>
+</li>
+</ul>
+<span class="head"><a href="javascript:void(0);"></a></span></li><li class="level1 nav-1-19 last">
+<a href="https://www.pantechsolutions.net/internet-of-things">
+<span>Internet of Things</span>
+</a>
+</li>
+</ul>
+<span class="head"><a href="javascript:void(0);"></a></span></li><li class="level0 nav-2 level-top parent">
+<a href="https://www.pantechsolutions.net/components" class="level-top">
+<span>Components</span>
+</a>
+<ul class="level0" style="display: none;">
+<li class="level1 nav-2-1 first">
+<a href="https://www.pantechsolutions.net/microcontrollers-ic-s">
+<span>Microcontrollers-IC's</span>
+</a>
+</li><li class="level1 nav-2-2">
+<a href="https://www.pantechsolutions.net/module-ic-s">
+<span>Module IC'S</span>
+</a>
+</li><li class="level1 nav-2-3">
+<a href="https://www.pantechsolutions.net/ic-base">
+<span>IC Base</span>
+</a>
+</li><li class="level1 nav-2-4">
+<a href="https://www.pantechsolutions.net/cables">
+<span>Cables</span>
+</a>
+</li><li class="level1 nav-2-5">
+<a href="https://www.pantechsolutions.net/connectors">
+<span>Connectors</span>
+</a>
+</li><li class="level1 nav-2-6">
+<a href="https://www.pantechsolutions.net/sockets">
+<span>Sockets</span>
+</a>
+</li><li class="level1 nav-2-7">
+<a href="https://www.pantechsolutions.net/display">
+<span>Display</span>
+</a>
+</li><li class="level1 nav-2-8">
+<a href="https://www.pantechsolutions.net/battery">
+<span>Batteries &amp; Battery Holders</span>
+</a>
+</li><li class="level1 nav-2-9">
+<a href="https://www.pantechsolutions.net/crystals-and-oscillators">
+<span>Crystals and Oscillators</span>
+</a>
+</li><li class="level1 nav-2-10">
+<a href="https://www.pantechsolutions.net/transistors">
+<span>Transistors</span>
+</a>
+</li><li class="level1 nav-2-11">
+<a href="https://www.pantechsolutions.net/relays">
+<span>Relays</span>
+</a>
+</li><li class="level1 nav-2-12">
+<a href="https://www.pantechsolutions.net/transformers">
+<span>Transformers</span>
+</a>
+</li><li class="level1 nav-2-13">
+<a href="https://www.pantechsolutions.net/switches">
+<span>Switches</span>
+</a>
+</li><li class="level1 nav-2-14">
+<a href="https://www.pantechsolutions.net/antenna">
+<span>Antenna</span>
+</a>
+</li><li class="level1 nav-2-15">
+<a href="https://www.pantechsolutions.net/adaptor">
+<span>Adaptor</span>
+</a>
+</li><li class="level1 nav-2-16">
+<a href="https://www.pantechsolutions.net/power-electronics-components">
+<span>Power Electronics</span>
+</a>
+</li><li class="level1 nav-2-17 last">
+<a href="https://www.pantechsolutions.net/motors">
+<span>Motors</span>
+</a>
+</li>
+</ul>
+<span class="head"><a href="javascript:void(0);"></a></span></li><li class="level0 nav-3 level-top last parent">
+<a href="https://www.pantechsolutions.net/projects" class="level-top">
+<span>Projects Source Code</span>
+</a>
+<ul class="level0" style="display: none;">
+<li class="level1 nav-3-1 first">
+<a href="https://www.pantechsolutions.net/8051-projects">
+<span>8051 Projects</span>
+</a>
+</li><li class="level1 nav-3-2">
+<a href="https://www.pantechsolutions.net/arm7-projects">
+<span>ARM7 Projects</span>
+</a>
+</li><li class="level1 nav-3-3">
+<a href="https://www.pantechsolutions.net/arduino-projects">
+<span>Arduino Projects</span>
+</a>
+</li><li class="level1 nav-3-4">
+<a href="https://www.pantechsolutions.net/fpga-projects">
+<span>FPGA Projects</span>
+</a>
+</li><li class="level1 nav-3-5">
+<a href="https://www.pantechsolutions.net/vlsi-projects">
+<span>VLSI Projects</span>
+</a>
+</li><li class="level1 nav-3-6">
+<a href="https://www.pantechsolutions.net/iot-projects">
+<span>IoT Projects</span>
+</a>
+</li><li class="level1 nav-3-7">
+<a href="https://www.pantechsolutions.net/image-processing-projects">
+<span>Image processing Projects</span>
+</a>
+</li><li class="level1 nav-3-8">
+<a href="https://www.pantechsolutions.net/video-processing-projects">
+<span>Video Processing Projects</span>
+</a>
+</li><li class="level1 nav-3-9">
+<a href="https://www.pantechsolutions.net/robotics-projects">
+<span>Robotics Projects</span>
+</a>
+</li><li class="level1 nav-3-10">
+<a href="https://www.pantechsolutions.net/audio-processing-projects">
+<span>Audio processing Projects</span>
+</a>
+</li><li class="level1 nav-3-11">
+<a href="https://www.pantechsolutions.net/brain-computer-interface">
+<span>Brain computer Interface</span>
+</a>
+</li><li class="level1 nav-3-12">
+<a href="https://www.pantechsolutions.net/gesture-recognition-projects">
+<span>Gesture Recognition Projects</span>
+</a>
+</li><li class="level1 nav-3-13">
+<a href="https://www.pantechsolutions.net/dspic-projects">
+<span>DSPIC Projects</span>
+</a>
+</li><li class="level1 nav-3-14">
+<a href="https://www.pantechsolutions.net/vhdl-projects">
+<span>VHDL Projects</span>
+</a>
+</li><li class="level1 nav-3-15">
+<a href="https://www.pantechsolutions.net/power-electronics-projects">
+<span>Power Electronics Projects</span>
+</a>
+</li><li class="level1 nav-3-16">
+<a href="https://www.pantechsolutions.net/information-technology">
+<span>Information Technology</span>
+</a>
+</li><li class="level1 nav-3-17 last">
+<a href="https://www.pantechsolutions.net/dsp-projects">
+<span>DSP Projects</span>
+</a>
+</li>
+</ul>
+<span class="head"><a href="javascript:void(0);"></a></span></li>                                        <li class="blog level0 level-top"><a href="https://www.pantechsolutions.net/blog/" class="level0" title="blog"><span>Blog</span></a></li>
+										 <li class="blog level0 level-top"><a href="https://www.pantechsolutions.net/forum/" class="level0" title="blog"><span>Forum</span></a></li>
+                                </ul>
+                        </div>
+                </div>
+            </div>
+                <div id="nav_megamenu" class="nav_megamenu visible-lg visible-md"> 
+                   
+            <div id="megamenu_home" class="megamenu act"><div class="level-top"><a href="https://www.pantechsolutions.net/"><span>Home</span></a></div></div>                        <div class="megamenu nav-1 "><div class="level-top"><a href="https://www.pantechsolutions.net/products"><span>Products</span><i class="fa fa-angle-down"></i></a></div><div id="dropdown499" class="dropdown"><div class="block1" id="block1499"><div class=" first col1 column"><div class="itemMenu level1"><a class="itemMenuName level1" href="https://www.pantechsolutions.net/cpld-fpga-boards"><span>CPLD/FPGA Boards</span></a><div class="itemSubMenu level1"><div class="itemMenu level2"><a class="itemMenuName level2 nochild" href="https://www.pantechsolutions.net/fpga-tutorials"><span>Tutorial</span></a></div></div><a class="itemMenuName level1" href="https://www.pantechsolutions.net/robotics"><span>Robotics</span></a><a class="itemMenuName level1" href="https://www.pantechsolutions.net/interface-cards"><span>Interface cards</span></a><div class="itemSubMenu level1"><div class="itemMenu level2"><a class="itemMenuName level2 nochild" href="https://www.pantechsolutions.net/interface-cards-tutorials"><span>Tutorial</span></a></div></div><a class="itemMenuName level1" href="https://www.pantechsolutions.net/power-supplies"><span>Power Supplies</span></a><div class="itemSubMenu level1"><div class="itemMenu level2"><a class="itemMenuName level2 nochild" href="https://www.pantechsolutions.net/power-supplies-tutorials"><span>Tutorial</span></a></div></div><a class="itemMenuName level1" href="https://www.pantechsolutions.net/wearable-electronics"><span>Wearable electronics</span></a></div></div><div class=" col2 column"><div class="itemMenu level1"><a class="itemMenuName level1" href="https://www.pantechsolutions.net/microcontroller-boards"><span>Microcontroller Boards</span></a><div class="itemSubMenu level1"><div class="itemMenu level2"><a class="itemMenuName level2 nochild" href="https://www.pantechsolutions.net/microcontroller-tutorials"><span>Tutorial</span></a></div></div><a class="itemMenuName level1" href="https://www.pantechsolutions.net/power-electronics-and-drives"><span>Power Electronics &amp; Drives</span></a><div class="itemSubMenu level1"><div class="itemMenu level2"><a class="itemMenuName level2 nochild" href="https://www.pantechsolutions.net/powerelectronics-drives-tutorials"><span>Tutorial</span></a></div></div><a class="itemMenuName level1" href="https://www.pantechsolutions.net/programmers-and-emulators"><span>Programmers &amp; emulators</span></a><div class="itemSubMenu level1"><div class="itemMenu level2"><a class="itemMenuName level2 nochild" href="https://www.pantechsolutions.net/programmers-emulators-tutorial"><span>Tutorial</span></a></div></div><a class="itemMenuName level1" href="https://www.pantechsolutions.net/wireless-boards"><span>Wireless boards</span></a><div class="itemSubMenu level1"><div class="itemMenu level2"><a class="itemMenuName level2 nochild" href="https://www.pantechsolutions.net/wireless-tutorials"><span>Tutorial</span></a></div></div><a class="itemMenuName level1" href="https://www.pantechsolutions.net/power-electronics"><span>Power Electronics</span></a><div class="itemSubMenu level1"><div class="itemMenu level2"><a class="itemMenuName level2 nochild" href="https://www.pantechsolutions.net/powerelectronics-tutorials"><span>Tutorial</span></a></div></div></div></div><div class=" col3 column"><div class="itemMenu level1"><a class="itemMenuName level1" href="https://www.pantechsolutions.net/dsp-dsc-boards"><span>DSP/DSC Boards</span></a><div class="itemSubMenu level1"><div class="itemMenu level2"><a class="itemMenuName level2 nochild" href="https://www.pantechsolutions.net/dsp-dsc-tutorials"><span>Tutorial</span></a></div></div><a class="itemMenuName level1" href="https://www.pantechsolutions.net/measurement-labs"><span>Measurement labs</span></a><div class="itemSubMenu level1"><div class="itemMenu level2"><a class="itemMenuName level2 nochild" href="https://www.pantechsolutions.net/measurement-labs-tutorials"><span>Tutorial</span></a></div></div><a class="itemMenuName level1" href="https://www.pantechsolutions.net/diy-tools"><span>DIY Tools</span></a><a class="itemMenuName level1" href="https://www.pantechsolutions.net/communication-boards"><span>Communication Boards</span></a><div class="itemSubMenu level1"><div class="itemMenu level2"><a class="itemMenuName level2 nochild" href="https://www.pantechsolutions.net/communication-tutorials"><span>Tutorial</span></a></div></div><a class="itemMenuName level1" href="https://www.pantechsolutions.net/internet-of-things"><span>Internet of Things</span></a></div></div><div class=" last col4 column"><div class="itemMenu level1"><a class="itemMenuName level1" href="https://www.pantechsolutions.net/sensors"><span>Sensors</span></a><a class="itemMenuName level1" href="https://www.pantechsolutions.net/control-system"><span>Control systems</span></a><div class="itemSubMenu level1"><div class="itemMenu level2"><a class="itemMenuName level2 nochild" href="https://www.pantechsolutions.net/control-systems-tutorials"><span>Tutorial</span></a></div></div><a class="itemMenuName level1" href="https://www.pantechsolutions.net/fiber-optics"><span>Fiber optics</span></a><div class="itemSubMenu level1"><div class="itemMenu level2"><a class="itemMenuName level2 nochild" href="https://www.pantechsolutions.net/fiber-optics-tutorials"><span>Tutorial</span></a></div></div><a class="itemMenuName level1" href="https://www.pantechsolutions.net/basic-electronics-lab"><span>Basic Electronics Lab</span></a></div></div><div class="clearBoth"></div></div><div class="block2" id="block2499"><!--a href="https://www.pantechsolutions.net/sensors/brainsense" title="Brainsense" ><img alt="" src="https://www.pantechsolutions.net/media/wysiwyg/bottom-banner3.jpg" /></a--></div></div></div><div class="megamenu nav-2 "><div class="level-top"><a href="https://www.pantechsolutions.net/components"><span>Components</span><i class="fa fa-angle-down"></i></a></div><div id="dropdown479" class="dropdown"><div class="block1" id="block1479"><div class=" first col1 column"><div class="itemMenu level1"><a class="itemMenuName level1 nochild" href="https://www.pantechsolutions.net/microcontrollers-ic-s"><span>Microcontrollers-IC's</span></a><a class="itemMenuName level1 nochild" href="https://www.pantechsolutions.net/connectors"><span>Connectors</span></a><a class="itemMenuName level1 nochild" href="https://www.pantechsolutions.net/crystals-and-oscillators"><span>Crystals and Oscillators</span></a><a class="itemMenuName level1 nochild" href="https://www.pantechsolutions.net/switches"><span>Switches</span></a><a class="itemMenuName level1 nochild" href="https://www.pantechsolutions.net/motors"><span>Motors</span></a></div></div><div class=" col2 column"><div class="itemMenu level1"><a class="itemMenuName level1 nochild" href="https://www.pantechsolutions.net/module-ic-s"><span>Module IC'S</span></a><a class="itemMenuName level1 nochild" href="https://www.pantechsolutions.net/sockets"><span>Sockets</span></a><a class="itemMenuName level1 nochild" href="https://www.pantechsolutions.net/transistors"><span>Transistors</span></a><a class="itemMenuName level1 nochild" href="https://www.pantechsolutions.net/antenna"><span>Antenna</span></a></div></div><div class=" col3 column"><div class="itemMenu level1"><a class="itemMenuName level1 nochild" href="https://www.pantechsolutions.net/ic-base"><span>IC Base</span></a><a class="itemMenuName level1 nochild" href="https://www.pantechsolutions.net/display"><span>Display</span></a><a class="itemMenuName level1 nochild" href="https://www.pantechsolutions.net/relays"><span>Relays</span></a><a class="itemMenuName level1 nochild" href="https://www.pantechsolutions.net/adaptor"><span>Adaptor</span></a></div></div><div class=" last col4 column"><div class="itemMenu level1"><a class="itemMenuName level1 nochild" href="https://www.pantechsolutions.net/cables"><span>Cables</span></a><a class="itemMenuName level1 nochild" href="https://www.pantechsolutions.net/battery"><span>Batteries &amp; Battery Holders</span></a><a class="itemMenuName level1 nochild" href="https://www.pantechsolutions.net/transformers"><span>Transformers</span></a><a class="itemMenuName level1 nochild" href="https://www.pantechsolutions.net/power-electronics-components"><span>Power Electronics</span></a></div></div><div class="clearBoth"></div></div></div></div><div class="megamenu nav-3 "><div class="level-top"><a href="https://www.pantechsolutions.net/projects"><span>Projects Source Code</span><i class="fa fa-angle-down"></i></a></div><div id="dropdown480" class="dropdown"><div class="block1" id="block1480"><div class=" first col1 column"><div class="itemMenu level1"><a class="itemMenuName level1 nochild" href="https://www.pantechsolutions.net/8051-projects"><span>8051 Projects</span></a><a class="itemMenuName level1 nochild" href="https://www.pantechsolutions.net/vlsi-projects"><span>VLSI Projects</span></a><a class="itemMenuName level1 nochild" href="https://www.pantechsolutions.net/robotics-projects"><span>Robotics Projects</span></a><a class="itemMenuName level1 nochild" href="https://www.pantechsolutions.net/dspic-projects"><span>DSPIC Projects</span></a><a class="itemMenuName level1 nochild" href="https://www.pantechsolutions.net/dsp-projects"><span>DSP Projects</span></a></div></div><div class=" col2 column"><div class="itemMenu level1"><a class="itemMenuName level1 nochild" href="https://www.pantechsolutions.net/arm7-projects"><span>ARM7 Projects</span></a><a class="itemMenuName level1 nochild" href="https://www.pantechsolutions.net/iot-projects"><span>IoT Projects</span></a><a class="itemMenuName level1 nochild" href="https://www.pantechsolutions.net/audio-processing-projects"><span>Audio processing Projects</span></a><a class="itemMenuName level1 nochild" href="https://www.pantechsolutions.net/vhdl-projects"><span>VHDL Projects</span></a></div></div><div class=" col3 column"><div class="itemMenu level1"><a class="itemMenuName level1 nochild" href="https://www.pantechsolutions.net/arduino-projects"><span>Arduino Projects</span></a><a class="itemMenuName level1 nochild" href="https://www.pantechsolutions.net/image-processing-projects"><span>Image processing Projects</span></a><a class="itemMenuName level1 nochild" href="https://www.pantechsolutions.net/brain-computer-interface"><span>Brain computer Interface</span></a><a class="itemMenuName level1 nochild" href="https://www.pantechsolutions.net/power-electronics-projects"><span>Power Electronics Projects</span></a></div></div><div class=" last col4 column"><div class="itemMenu level1"><a class="itemMenuName level1 nochild" href="https://www.pantechsolutions.net/fpga-projects"><span>FPGA Projects</span></a><a class="itemMenuName level1 nochild" href="https://www.pantechsolutions.net/video-processing-projects"><span>Video Processing Projects</span></a><a class="itemMenuName level1 nochild" href="https://www.pantechsolutions.net/gesture-recognition-projects"><span>Gesture Recognition Projects</span></a><a class="itemMenuName level1 nochild" href="https://www.pantechsolutions.net/information-technology"><span>Information Technology</span></a></div></div><div class="clearBoth"></div></div></div></div>                                    <div id="megamenu_link" class="megamenu"><div class="level-top"><p><a href="https://www.pantechsolutions.net/blog">Blog</a><!--a class="active-forum" href="https://www.pantechsolutions.net/forum">Forum</a--><a href="https://www.pantechsolutions.net/contact-us/">Contact us</a></p></div></div>            
+            
+        </div>
+        </div>
+    <script type="text/javascript"><!--
+/* Script removed by snapshot save */
+--></script>
+</nav>
+    </header>
+
+                <main class="main-wrapper">
+            <div class="container">
+                <div class="container-inner">
+                <section class="main-page">
+                    <div class="main-container col2-left-layout">
+                        <div class="main">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                                    <div class="col-left sidebar">
+<div class="block block-layered-nav">
+   
+	
+	<div class="block-title"><strong><span>Projects Source Code</span></strong></div>
+     <div class="block-content">
+        <dl id="narrow-by-list2">
+            <dt class="last odd"></dt>
+			 <dd class="last odd">
+                <ol> <li><a href="https://www.pantechsolutions.net/8051-projects"> 8051 Projects</a></li>
+		    <li><a href="https://www.pantechsolutions.net/arm7-projects"> ARM7 Projects</a></li>
+		    <li><a href="https://www.pantechsolutions.net/arduino-projects"> Arduino Projects</a></li>
+		    <li><a href="https://www.pantechsolutions.net/fpga-projects"> FPGA Projects</a></li>
+		    <li><a href="https://www.pantechsolutions.net/vlsi-projects"> VLSI Projects</a></li>
+		    <li><a href="https://www.pantechsolutions.net/iot-projects"> IoT Projects</a></li>
+		    <li><a href="https://www.pantechsolutions.net/image-processing-projects"> Image processing Projects</a></li>
+		    <li><a href="https://www.pantechsolutions.net/video-processing-projects"> Video Processing Projects</a></li>
+		    <li><a href="https://www.pantechsolutions.net/robotics-projects"> Robotics Projects</a></li>
+		    <li><a href="https://www.pantechsolutions.net/audio-processing-projects"> Audio processing Projects</a></li>
+		    <li class="active"><a href="https://www.pantechsolutions.net/brain-computer-interface"> Brain computer Interface</a></li>
+		    <li><a href="https://www.pantechsolutions.net/gesture-recognition-projects"> Gesture Recognition Projects</a></li>
+		    <li><a href="https://www.pantechsolutions.net/dspic-projects"> DSPIC Projects</a></li>
+		    <li><a href="https://www.pantechsolutions.net/vhdl-projects"> VHDL Projects</a></li>
+		    <li><a href="https://www.pantechsolutions.net/power-electronics-projects"> Power Electronics Projects</a></li>
+		    <li><a href="https://www.pantechsolutions.net/information-technology"> Information Technology</a></li>
+		    <li><a href="https://www.pantechsolutions.net/dsp-projects"> DSP Projects</a></li>
+		   	 </ol>
+            </dd>
+        </dl>
+        <script type="text/javascript"><!--
+/* Script removed by snapshot save */
+--></script>
+    </div>
+</div>
+
+
+</div>
+                                </div>
+                                <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
+                                    <div class="col-main">
+                                        <div class="breadcrumbs">
+    <ol itemscope="" itemtype="http://schema.org/BreadcrumbList">
+        		
+            <li class="home" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+            			 
+                <a itemprop="item" href="https://www.pantechsolutions.net/" title="Go to Home Page"><span itemprop="name">Home</span></a>
+			
+                                        <span>/ </span>
+                        </li>
+        		
+            <li class="category480" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+                            <span itemprop="name">Projects Source Code</span>
+                                        <span>/ </span>
+                        </li>
+        		
+            <li class="category567" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+            			 
+                <a itemprop="item" href="https://www.pantechsolutions.net/brain-computer-interface" title=""><span itemprop="name">Brain computer Interface</span></a>
+			
+                                        <span>/ </span>
+                        </li>
+        		
+            <li class="product" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+                            <strong itemprop="name">Interfacing Mindwave Mobile with Arduino</strong>
+                                    </li>
+            </ol>
+</div>
+   
+                                                                                <div id="algolia-autocomplete-container" style="position: relative;"><span class="aa-dropdown-menu" style="position: absolute; top: 0px; left: 0px; z-index: 100; display: none; right: auto;" role="listbox" id="algolia-autocomplete-listbox-0">
+    <div class="autocomplete-wrapper">
+        <div class="col9">
+            <div class="aa-dataset-products"></div>
+        </div>
+        <div class="col3">
+            <div class="other-sections">
+                <div class="aa-dataset-suggestions"></div>
+                                    <div class="aa-dataset-0"></div>
+                                    <div class="aa-dataset-1"></div>
+                                    <div class="aa-dataset-2"></div>
+                                    <div class="aa-dataset-3"></div>
+                                    <div class="aa-dataset-4"></div>
+                                    <div class="aa-dataset-5"></div>
+                                    <div class="aa-dataset-6"></div>
+                                    <div class="aa-dataset-7"></div>
+                                    <div class="aa-dataset-8"></div>
+                                    <div class="aa-dataset-9"></div>
+                            </div>
+        </div>
+    </div>
+<div class="footer_algolia"><a href="https://www.algolia.com/?utm_source=magento&amp;utm_medium=link&amp;utm_campaign=magento_autocompletion_menu" title="Search by Algolia" target="_blank"><img src="Interfacing%20Mindwave%20Mobile%20with%20Arduino_files/search-by-algolia.svg" alt="Search by Algolia"></a></div></span></div>
+<script type="text/javascript"><!--
+/* Script removed by snapshot save */
+--></script>
+<script type="text/javascript"><!--
+/* Script removed by snapshot save */
+--></script>
+<div id="messages_product_view"></div>
+<style><!--
+/* Effective stylesheet produced by snapshot save */
+--></style>
+<div class="product-view" itemscope="" itemtype="http://schema.org/Product">
+	 <div class="download-contain">
+		<h1 itemprop="name"><a class="title-url" href="#">Interfacing Mindwave Mobile with Arduino</a></h1>
+		
+<div class="yotpo bottomLine" data-product-id="1070" data-url="https://www.pantechsolutions.net/brain-computer-interface/interfacing-mindwave-mobile-with-arduino?___store=en&amp;___from_store=en">
+</div>	<div class="dwnload-pdfs">
+     <div class="row">
+        <div class="col-md-12 col-xs-12"><div class="easytabs-wrapper" id="easytabs">
+    <div class="easytabs-ul-wrapper" style="border-bottom: 1px solid #ccc;">
+        <ul>
+            <li style="font-size:18px;"><img src="Interfacing%20Mindwave%20Mobile%20with%20Arduino_files/download.png" alt="Download" width="26" height="26">    DownLoad your Source code / Documents here.. </li>
+		</ul>
+
+    </div>
+	<div class="box-collateral box-attachments box-up-sell">
+					<div class="item rar">
+								
+				<span class="attach-img"><img src="Interfacing%20Mindwave%20Mobile%20with%20Arduino_files/rar.png" alt="View File" style="margin-right: 5px;"></span>			
+			  <a href="https://www.pantechsolutions.net/customer/account/login/">
+	 Interfacing Mindwave Mobile with Arduino Download Source Code</a>
+								<br>
+			</div>
+			</div>
+</div>
+		 		</div>
+      
+	    <div class="col-md-3 col-xs-6 btn-cls">
+		<!-- Go to www.addthis.com/dashboard to customize your tools --> <div style="padding:15px 0px;" class="addthis_inline_share_toolbox"></div>
+        <!-- Go to www.addthis.com/dashboard to customize your tools --> <script type="text/javascript" src="Interfacing%20Mindwave%20Mobile%20with%20Arduino_files/addthis_widget.js#pubid=ra-59410fac264b59aa" async="async"></script> 
+				                    <div class="add-to-box-cart">
+                                                                    </div>
+                         
+                  
+		</div>
+      </div></div>
+    </div>
+ 
+  <div class="col-sm-12 text-contain">
+   
+	  <form action="https://www.pantechsolutions.net/checkout/cart/add/uenc/aHR0cHM6Ly93d3cucGFudGVjaHNvbHV0aW9ucy5uZXQvYnJhaW4tY29tcHV0ZXItaW50ZXJmYWNlL2ludGVyZmFjaW5nLW1pbmR3YXZlLW1vYmlsZS13aXRoLWFyZHVpbm8,/product/1070/form_key/ZbPLuNZMlwrCksW7/" method="post" id="product_addtocart_form">
+        <div class="row">
+            			<p>                                                     </p><div style="display:none;">
+                        <div itemprop="description">Mindwave mobile, Neuro sky is the manufacturer of Mindwave mobile. The NeuroSky biosensor platform provides a powerful foundation for the development of a variety of applications that promote Mind health such as improved focus, concentration, working memory and acuity. Other uses include meditation and relaxation monitoring or improved educational processes. Our low cost, complete OEM solution is a high-performance bio-signal on a single chip solution for accurate Mind activity detection and processing.</div>
+                    </div>
+                                                    <div class="short-description">
+                        <!--<h2>Quick Overview</h2>-->
+                        <div class="std"><h2><a href="https://www.pantechsolutions.net/sensors/brainwave-starter-kit-mindwave-mobile" style="color: #3495ba;">Mindwave mobile</a></h2>
+<p><a href="https://www.pantechsolutions.net/sensors/brainwave-starter-kit-mindwave-mobile" style="color: #3495ba;">Mindwave mobile</a>, Neuro sky is the manufacturer of <a href="https://www.pantechsolutions.net/sensors/brainwave-starter-kit-mindwave-mobile" style="color: #3495ba;">Mindwave mobile</a>. The NeuroSky biosensor platform provides a powerful foundation for the development of a variety of applications that promote Mind health such as improved focus, concentration, working memory and acuity. Other uses include meditation and relaxation monitoring or improved educational processes. Our low cost, complete OEM solution is a high-performance bio-signal on a single chip solution for accurate Mind activity detection and processing.</p>
+<h2>Bluetooth Module (<a href="https://www.pantechsolutions.net/module-ic-s/hc-05-bluetooth-module" style="color: #3495ba;">HC-05</a>)</h2>
+<p>It's a high performance Bluetooth module <a href="https://www.pantechsolutions.net/module-ic-s/hc-05-bluetooth-module" style="color: #3495ba;">HC-05</a>. This is a standalone BTM-05 Bluetooth module. Its works as TTL Master/Slave Transceiver module with serial UART protocol for communication. Designed by Full speed Bluetooth operation with full piconet support. It allows you to achieve the industry's highest levels of sensitivity, accuracy, with lowest power consumption.</p>
+<h2>Demonstration Video</h2>
+<div> </div>
+<h2>PROJECT DESCRIPTION</h2>
+<p> </p>
+<h2>Connecting wires:</h2>
+<p>The connecting wires are both sides having female type, because Arduino and <a href="https://www.pantechsolutions.net/module-ic-s/hc-05-bluetooth-module" style="color: #3495ba;">HC-05 models</a> are having male type connector for interfacing.</p>
+<h2><a href="https://www.pantechsolutions.net/module-ic-s/hc-05-bluetooth-module" style="color: #3495ba;">HC-05 Module</a> data communication:</h2>
+<p style="text-indent: 20px;">☞Serial Interface UART</p>
+<h2>Configuration of <a href="https://www.pantechsolutions.net/module-ic-s/hc-05-bluetooth-module" style="color: #3495ba;">HC-05</a>:</h2>
+<p style="text-indent: 20px;">☞Its configure as master mode</p>
+<p style="text-indent: 20px;">☞Mindwave Kit act as slave device</p>
+<h2>Hardware's:</h2>
+<p style="text-indent: 20px;">☞<a href="https://www.pantechsolutions.net/sensors/brainwave-starter-kit-mindwave-mobile" style="color: #3495ba;">Mindwave mobile</a> Kit</p>
+<p style="text-indent: 20px;">☞Arduino Board</p>
+<p style="text-indent: 20px;">☞<a href="https://www.pantechsolutions.net/module-ic-s/hc-05-bluetooth-module" style="color: #3495ba;">HC-05</a> Bluetooth Module</p>
+<p style="text-indent: 20px;">☞USB cable (for Arduino)</p>
+<p style="text-indent: 20px;">☞Connecting Wires.</p>
+<h2>Software's:</h2>
+<p style="text-indent: 20px;">☞Cool Term ,X-CTU (any serial communication software)</p>
+<p style="text-indent: 20px;">☞Arduino 1.0.5-r2</p>
+<h2>Front view of <a href="https://www.pantechsolutions.net/module-ic-s/hc-05-bluetooth-module" style="color: #3495ba;">HC-05 Module</a></h2>
+<p><br><br></p>
+<p><img alt="" src="Interfacing%20Mindwave%20Mobile%20with%20Arduino_files/front-view-of-hc-05-module_1.png" style="display: block; margin-left: auto; margin-right: auto;" title="hc-05-module"></p>
+<p><br><br></p>
+<h2>Rear view of <a href="https://www.pantechsolutions.net/module-ic-s/hc-05-bluetooth-module" style="color: #3495ba;">HC-05 Module</a></h2>
+<p><br><br></p>
+<p><img alt="" src="Interfacing%20Mindwave%20Mobile%20with%20Arduino_files/rear-view-of-hc-05-module_1.png" style="display: block; margin-left: auto; margin-right: auto;" title="rear-view-of-hc-05-module"></p>
+<p><br><br></p>
+<h2>Find the Unique number of your Mindwave Device</h2>
+<p><br><br></p>
+<p>1. Select your Mindwave device</p>
+<p><br><br></p>
+<p><img alt="" src="Interfacing%20Mindwave%20Mobile%20with%20Arduino_files/select-your-mindwave-device.jpg" style="display: block; margin-left: auto; margin-right: auto;" title="select-indwave-device-via-bluetooth"></p>
+<p>Right click → Properties → Bluetooth Then know your Unique Identifier Number (Note it)</p>
+<p><br><br></p>
+<p><img alt="" src="Interfacing%20Mindwave%20Mobile%20with%20Arduino_files/blutooth-unique-identifier-number.jpg" style="display: block; margin-left: auto; margin-right: auto;" title="unique-identifier-number-for-bluetooth-device"></p>
+<p></p>
+<p>Example: This module Unique no =9cb7,0d,89e51c</p>
+<p> </p>
+<h2>Diagram for <a href="https://www.pantechsolutions.net/module-ic-s/hc-05-bluetooth-module" style="color: #3495ba;">HC-05</a> Bluetooth Module with Arduino:</h2>
+<h2>Method 1 for AT Commands</h2>
+<p><br><br></p>
+<p><img alt="" src="Interfacing%20Mindwave%20Mobile%20with%20Arduino_files/diagram-for-hc-05-bluetooh-module-with-arduino.png" style="display: block; margin-left: auto; margin-right: auto;" title="hc-05-with-arduino"></p>
+<p></p>
+<p>Note: Here the Arduino Board used only for USB to UART converter. So don't want to download any source code (Sketch) to board.</p>
+<h2>Real view of Arduino with HC-05 Module</h2>
+<p><br><br></p>
+<p><img alt="" src="Interfacing%20Mindwave%20Mobile%20with%20Arduino_files/arduino-with-hc-05-module.jpg" style="display: block; margin-left: auto; margin-right: auto;" title="Arduino-with-HC-05"></p>
+<p><br><br></p>
+<h2>Modes of <a href="https://www.pantechsolutions.net/module-ic-s/hc-05-bluetooth-module" style="color: #3495ba;">HC-05</a> Bluetooth Module:</h2>
+<h3>How to <a href="https://www.pantechsolutions.net/module-ic-s/hc-05-bluetooth-module" style="color: #3495ba;">HC-05 Module</a> Enter into Command mode:</h3>
+<p>Press and Hold the Push switch in <a href="https://www.pantechsolutions.net/module-ic-s/hc-05-bluetooth-module" style="color: #3495ba;">HC-05 Module</a> at few secs, when its power ON (In between OFF state to ON state).</p>
+<p>If <a href="https://www.pantechsolutions.net/module-ic-s/hc-05-bluetooth-module" style="color: #3495ba;">HC-05 Module</a> in Command mode means, the LED blink at low toggle (blinking slowly).</p>
+<p></p>
+<h3>Buadrate for Command Mode</h3>
+<p>In command mode the <a href="https://www.pantechsolutions.net/module-ic-s/hc-05-bluetooth-module" style="color: #3495ba;">HC-05 Module</a> works in 38400 buadrate (fixed buadrate).</p>
+<p> </p>
+<h3>How to <a href="https://www.pantechsolutions.net/module-ic-s/hc-05-bluetooth-module" style="color: #3495ba;">HC-05 Module</a> Enter into Data mode:</h3>
+<p>In default state, the <a href="https://www.pantechsolutions.net/module-ic-s/hc-05-bluetooth-module" style="color: #3495ba;">HC-05 Module</a> works as a Data mode operation.</p>
+<p>If <a href="https://www.pantechsolutions.net/module-ic-s/hc-05-bluetooth-module" style="color: #3495ba;">HC-05 Module</a> in Data mode means, the LED blink at High toggle.</p>
+<p> </p>
+<h3>Buadrate for Data Mode</h3>
+<p>In Data mode the <a href="https://www.pantechsolutions.net/module-ic-s/hc-05-bluetooth-module" style="color: #3495ba;">HC-05 Module</a> works in variable buadrate.</p>
+<p> </p>
+<h2>AT Commands for <a href="https://www.pantechsolutions.net/module-ic-s/hc-05-bluetooth-module" style="color: #3495ba;">HC-05 Module</a> Initialize for Mindwave Kit</h2>
+<p>First Enter into command mode, after then enter the following commands for <a href="https://www.pantechsolutions.net/module-ic-s/hc-05-bluetooth-module" style="color: #3495ba;">HC-05 Module</a> to communicate our Mindwave Kit.</p>
+<p style="text-indent: 20px;">☞1. AT+NAME=”PANTECH”</p>
+<p style="text-indent: 20px;">☞2. AT+UART=”57600,0,0”</p>
+<p style="text-indent: 20px;">☞3. AT+ROLE=”1”</p>
+<p style="text-indent: 20px;">☞4. AT+PSWD=”1234”</p>
+<p style="text-indent: 20px;">☞5. AT+CMODE=”0”</p>
+<p style="text-indent: 20px;">☞6. AT+BIND=”XXXX,YY,ZZZZZZ” (Mindwave Unique Number)</p>
+<p style="text-indent: 20px;">☞7. AT+IAC=”9E8B33”</p>
+<p style="text-indent: 20px;">☞8. AT+CLASS=”0”</p>
+<p style="text-indent: 20px;">☞9. AT+INQM=”1,9,48”</p>
+<h2>Verification commands for <a href="https://www.pantechsolutions.net/module-ic-s/hc-05-bluetooth-module" style="color: #3495ba;">HC-05 Module</a></h2>
+<p style="text-indent: 20px;">☞1. AT</p>
+<p>OK</p>
+<p style="text-indent: 20px;">☞2. AT+UART?</p>
+<p>UART:57600,0,0<br> OK</p>
+<p style="text-indent: 20px;">☞3. AT+ROLE?</p>
+<p>+ROLE:1</p>
+<p>OK</p>
+<p style="text-indent: 20px;">☞4. AT+PSWD?</p>
+<p>+PSWD:1234</p>
+<p>OK</p>
+<p style="text-indent: 20px;">☞5. AT+CMODE?</p>
+<p>+CMODE:0</p>
+<p>OK</p>
+<p style="text-indent: 20px;">☞6. AT+BIND?</p>
+<p>BIND:9cb7:0d:89e51c</p>
+<p>OK</p>
+<p style="text-indent: 20px;">☞7. AT+IAC?</p>
+<p>IAC:9E8B33</p>
+<p>OK</p>
+<p style="text-indent: 20px;">☞8. AT+INQM?</p>
+<p>+INQM:1,7,48</p>
+<p>OK</p>
+<p>Note1: For using above AT commands don't use “(Double quotes) only enter In-between commands from double quotes. After the end of every command press “Enter Key”</p>
+<p> </p>
+<h3>Open serial communication software</h3>
+<p>(Here we have to use Flashmagic software)</p>
+<p>1. Select your Port and set Baudrate is 38400</p>
+<p><br><br></p>
+<p><img alt="" src="Interfacing%20Mindwave%20Mobile%20with%20Arduino_files/port-and-set-baudrate-is--flash-magic-terminal.jpg" style="display: block; margin-left: auto; margin-right: auto;" title="select-your-port-and-set-baudrate-is-38400-mindwave-with-arduino"></p>
+<p><br><br></p>
+<p>2. Enter the AT commands (Initialize)</p>
+<p><br><br></p>
+<p><img alt="" src="Interfacing%20Mindwave%20Mobile%20with%20Arduino_files/enter-the-at-commands-inirainwave-with-arduino.jpg" style="display: block; margin-left: auto; margin-right: auto;" title="Enter-the-AT-commands-for-mindwave-with-arduino"></p>
+<p><br><br></p>
+<p>3. Enter the AT commands (Verification)</p>
+<p><br><br></p>
+<p><img alt="" src="Interfacing%20Mindwave%20Mobile%20with%20Arduino_files/enter-the-at-commands-verrainwave-with-arduino.jpg" style="display: block; margin-left: auto; margin-right: auto;" title="Enter-the-AT-commands-Verification-for-mindwave-with-arduino"></p>
+<p><br><br></p>
+<h2>Some Tips about <a href="https://www.pantechsolutions.net/module-ic-s/hc-05-bluetooth-module" style="color: #3495ba;">HC-05 Module</a> Configuration</h2>
+<p style="text-indent: 20px;">☞. <a href="https://www.pantechsolutions.net/module-ic-s/hc-05-bluetooth-module" style="color: #3495ba;">HC-05 Module</a> configure as Mater device and Mindwave kit act as Slave device</p>
+<p style="text-indent: 20px;">☞. And the <a href="https://www.pantechsolutions.net/module-ic-s/hc-05-bluetooth-module" style="color: #3495ba;">HC-05 Module</a> was configuring as Specific address mode. Therefore it's Pair with only the specific device</p>
+<p style="text-indent: 20px;">☞. Here the specific device is our Mindwave kit (Using BIND AT command, we configured the Mindwave unique no to (<a href="https://www.pantechsolutions.net/module-ic-s/hc-05-bluetooth-module" style="color: #3495ba;">HC-05</a>).</p>
+<p style="text-indent: 20px;">☞. So the Mindwave and <a href="https://www.pantechsolutions.net/module-ic-s/hc-05-bluetooth-module" style="color: #3495ba;">HC-05 Module</a> automatically paired, when we switch ON the both device.</p>
+<h2>INTERFACING ARDUINO WITH MINDWAVE KIT</h2>
+<h2>Connection Diagram</h2>
+<p><br><br></p>
+<p><img alt="" src="Interfacing%20Mindwave%20Mobile%20with%20Arduino_files/leds-output-variation-w-rrainwave-with-arduino.png" style="display: block; margin-left: auto; margin-right: auto;" title="interfacing-arduino-with-mindwave-connection-diagram"></p>
+<p></p>
+<h2>Steps to follow</h2>
+<p style="text-indent: 20px;">☞. Switch ON the Mindwave kit and unpaired the last connections, then OFF the Mindwave device.</p>
+<p style="text-indent: 20px;">☞. Program (Upload the sketch) the “Mindwave with Arduino” source code to Arduino Board using Arduino compiler.</p>
+<p style="text-indent: 20px;">☞. Open the “Serial Monitor” in Arduino compiler with 57600 baudrate.</p>
+<p style="text-indent: 20px;">☞. Make all the connection as per the above image, and then switch ON the Arduino Board.</p>
+<p style="text-indent: 20px;">☞. After the 7 Seconds, switch ON the Mindwave device.</p>
+<p style="text-indent: 20px;">☞. Now the Mindwave device and Arduino Board will pair automatically.</p>
+<p style="text-indent: 20px;">☞. Wear the Mindwave device in Head, and give the attention.</p>
+<p style="text-indent: 20px;">☞. Check the LED variation with respect your attention level.</p>
+<p style="text-indent: 20px;">☞. And also see the Serial Monitor to know your Poor quality and attention levels.</p>
+<h2>Real view1 of Arduino with Mindwave Kit</h2>
+<p><br><br> <img alt="Real view1 of Arduino with Mindwave Kit" src="Interfacing%20Mindwave%20Mobile%20with%20Arduino_files/real-view1-of-arduino-with-mindwave-kit.jpg" style="display: block; margin-left: auto; margin-right: auto;" title="Real view1 of Arduino with Mindwave Kit"> <br><br></p>
+<h2>Upload the sketch to Arduino board</h2>
+<p><img alt="" src="Interfacing%20Mindwave%20Mobile%20with%20Arduino_files/upload-the-sketch-to-arduino-board_1.jpg" style="display: block; margin-left: auto; margin-right: auto;" title="upload-the-sketch-to-arduino-board"></p>
+<h2></h2>
+<h2>LED's Output (variation w.r.t Attention level)</h2>
+<p></p>
+<p><img alt="" src="Interfacing%20Mindwave%20Mobile%20with%20Arduino_files/leds-output-variation-w-rave-with-arduino-.png.png" style="display: block; margin-left: auto; margin-right: auto;" title="LEDs-Output-for-mindwave-mobile-with-arduino"></p>
+<p><br><br></p>
+<h2>Serial Monitor Output</h2>
+<p></p>
+<p><img alt="" src="Interfacing%20Mindwave%20Mobile%20with%20Arduino_files/serial-monitor-output-of-rainwave-with-arduino.jpg" style="display: block; margin-left: auto; margin-right: auto;" title="serial-monitor-output-for-mindwave-mobile-with-arduino"></p>
+<p></p>
+<h2>Program for Interfacing Arduino with Mindwave Kit</h2>
+<h3>Title: Mindwave with Arduino</h3>
+<pre class="brush: js;">////////////////////////////////////////////////////////////////////////
+// Arduino Bluetooth Interface with Brainsense
+// 
+// This is example code provided by Pantech Prolabs. and is provided
+// license free.
+////////////////////////////////////////////////////////////////////////
+
+#define LED 13
+#define BAUDRATE 57600
+#define DEBUGOUTPUT 0
+
+#define GREENLED1  3
+#define GREENLED2  4
+#define GREENLED3  5
+#define YELLOWLED1 6
+#define YELLOWLED2 7
+#define YELLOWLED3 8
+#define YELLOWLED4 9
+#define REDLED1    10
+#define REDLED2    11
+#define REDLED3    12
+
+#define powercontrol 10
+
+// checksum variables
+byte generatedChecksum = 0;
+byte checksum = 0; 
+int payloadLength = 0;
+byte payloadData[64] = {0};
+byte poorQuality = 0;
+byte attention = 0;
+byte meditation = 0;
+
+// system variables
+long lastReceivedPacket = 0;
+boolean bigPacket = false;
+
+//////////////////////////
+// Microprocessor Setup //
+//////////////////////////
+void setup() 
+
+{
+  pinMode(GREENLED1, OUTPUT);
+  pinMode(GREENLED2, OUTPUT);
+  pinMode(GREENLED3, OUTPUT);
+  pinMode(YELLOWLED1, OUTPUT);
+  pinMode(YELLOWLED2, OUTPUT);
+  pinMode(YELLOWLED3, OUTPUT);
+  pinMode(YELLOWLED4, OUTPUT);
+  pinMode(REDLED1, OUTPUT);
+  pinMode(REDLED2, OUTPUT);
+  pinMode(REDLED3, OUTPUT);
+
+  pinMode(LED, OUTPUT);
+  Serial.begin(BAUDRATE);           // USB
+}
+
+////////////////////////////////
+// Read data from Serial UART //
+////////////////////////////////
+byte ReadOneByte() 
+
+{
+  int ByteRead;
+  while(!Serial.available());
+  ByteRead = Serial.read();
+
+#if DEBUGOUTPUT  
+  Serial.print((char)ByteRead);   // echo the same byte out the USB serial (for debug purposes)
+#endif
+
+  return ByteRead;
+}
+
+/////////////
+//MAIN LOOP//
+/////////////
+void loop() 
+
+{
+  // Look for sync bytes
+  if(ReadOneByte() == 170) 
+  {
+    if(ReadOneByte() == 170) 
+    {
+        payloadLength = ReadOneByte();
+      
+        if(payloadLength &gt; 169)                      //Payload length can not be greater than 169
+        return;
+        generatedChecksum = 0;        
+        for(int i = 0; i &lt; payloadLength; i++) 
+        {  
+        payloadData[i] = ReadOneByte();            //Read payload into memory
+        generatedChecksum += payloadData[i];
+        }   
+
+        checksum = ReadOneByte();                      //Read checksum byte from stream      
+        generatedChecksum = 255 - generatedChecksum;   //Take one's compliment of generated checksum
+
+        if(checksum == generatedChecksum) 
+        {    
+          poorQuality = 200;
+          attention = 0;
+          meditation = 0;
+
+          for(int i = 0; i &lt; payloadLength; i++) 
+          {                                          // Parse the payload
+          switch (payloadData[i]) 
+          {
+          case 2:
+            i++;            
+            poorQuality = payloadData[i];
+            bigPacket = true;            
+            break;
+          case 4:
+            i++;
+            attention = payloadData[i];                        
+            break;
+          case 5:
+            i++;
+            meditation = payloadData[i];
+            break;
+          case 0x80:
+            i = i + 3;
+            break;
+          case 0x83:
+            i = i + 25;      
+            break;
+          default:
+            break;
+          } // switch
+        } // for loop
+
+#if !DEBUGOUTPUT
+
+        // *** Add your code here ***
+
+        if(bigPacket) 
+        {
+          if(poorQuality == 0)
+             digitalWrite(LED, HIGH);
+          else
+            digitalWrite(LED, LOW);
+          
+          Serial.print("PoorQuality: ");
+          Serial.print(poorQuality, DEC);
+          Serial.print(" Attention: ");
+          Serial.print(attention, DEC);
+          Serial.print(" Time since last packet: ");
+          Serial.print(millis() - lastReceivedPacket, DEC);
+          lastReceivedPacket = millis();
+          Serial.print("\n");
+
+          switch(attention / 10) 
+          {
+          case 0:
+            digitalWrite(GREENLED1, HIGH);
+            digitalWrite(GREENLED2, LOW);
+            digitalWrite(GREENLED3, LOW);
+            digitalWrite(YELLOWLED1, LOW);
+            digitalWrite(YELLOWLED2, LOW);
+            digitalWrite(YELLOWLED3, LOW);
+            digitalWrite(YELLOWLED4, LOW);
+            digitalWrite(REDLED1, LOW);
+            digitalWrite(REDLED2, LOW);
+            digitalWrite(REDLED3, LOW);           
+            break;
+          case 1:
+            digitalWrite(GREENLED1, HIGH);
+            digitalWrite(GREENLED2, HIGH);
+            digitalWrite(GREENLED3, LOW);
+            digitalWrite(YELLOWLED1, LOW);
+            digitalWrite(YELLOWLED2, LOW);
+            digitalWrite(YELLOWLED3, LOW);
+            digitalWrite(YELLOWLED4, LOW);
+            digitalWrite(REDLED1, LOW);
+            digitalWrite(REDLED2, LOW);
+            digitalWrite(REDLED3, LOW);
+            break;
+          case 2:
+            digitalWrite(GREENLED1, HIGH);
+            digitalWrite(GREENLED2, HIGH);
+            digitalWrite(GREENLED3, HIGH);
+            digitalWrite(YELLOWLED1, LOW);
+            digitalWrite(YELLOWLED2, LOW);
+            digitalWrite(YELLOWLED3, LOW);
+            digitalWrite(YELLOWLED4, LOW);
+            digitalWrite(REDLED1, LOW);
+            digitalWrite(REDLED2, LOW);
+            digitalWrite(REDLED3, LOW);
+            break;
+          case 3:              
+            digitalWrite(GREENLED1, HIGH);
+            digitalWrite(GREENLED2, HIGH);
+            digitalWrite(GREENLED3, HIGH);              
+            digitalWrite(YELLOWLED1, HIGH);
+            digitalWrite(YELLOWLED2, LOW);
+            digitalWrite(YELLOWLED3, LOW);
+            digitalWrite(YELLOWLED4, LOW);
+            digitalWrite(REDLED1, LOW);
+            digitalWrite(REDLED2, LOW);
+            digitalWrite(REDLED3, LOW);             
+            break;
+          case 4:
+            digitalWrite(GREENLED1, HIGH);
+            digitalWrite(GREENLED2, HIGH);
+            digitalWrite(GREENLED3, HIGH);              
+            digitalWrite(YELLOWLED1, HIGH);
+            digitalWrite(YELLOWLED2, HIGH);
+            digitalWrite(YELLOWLED3, LOW);
+            digitalWrite(YELLOWLED4, LOW);
+            digitalWrite(REDLED1, LOW);
+            digitalWrite(REDLED2, LOW);
+            digitalWrite(REDLED3, LOW);              
+            break;
+          case 5:
+            digitalWrite(GREENLED1, HIGH);
+            digitalWrite(GREENLED2, HIGH);
+            digitalWrite(GREENLED3, HIGH);              
+            digitalWrite(YELLOWLED1, HIGH);
+            digitalWrite(YELLOWLED2, HIGH);
+            digitalWrite(YELLOWLED3, HIGH);
+            digitalWrite(YELLOWLED4, LOW);
+            digitalWrite(REDLED1, LOW);
+            digitalWrite(REDLED2, LOW);
+            digitalWrite(REDLED3, LOW);               
+            break;
+          case 6:              
+            digitalWrite(GREENLED1, HIGH);
+            digitalWrite(GREENLED2, HIGH);
+            digitalWrite(GREENLED3, HIGH);              
+            digitalWrite(YELLOWLED1, HIGH);
+            digitalWrite(YELLOWLED2, HIGH);
+            digitalWrite(YELLOWLED3, HIGH);
+            digitalWrite(YELLOWLED4, HIGH);
+            digitalWrite(REDLED1, LOW);
+            digitalWrite(REDLED2, LOW);
+            digitalWrite(REDLED3, LOW);              
+            break;
+          case 7:
+            digitalWrite(GREENLED1, HIGH);
+            digitalWrite(GREENLED2, HIGH);
+            digitalWrite(GREENLED3, HIGH);              
+            digitalWrite(YELLOWLED1, HIGH);
+            digitalWrite(YELLOWLED2, HIGH);
+            digitalWrite(YELLOWLED3, HIGH);
+            digitalWrite(YELLOWLED4, HIGH);
+            digitalWrite(REDLED1, HIGH);
+            digitalWrite(REDLED2, LOW);
+            digitalWrite(REDLED3, LOW);              
+            break;    
+          case 8:
+            digitalWrite(GREENLED1, HIGH);
+            digitalWrite(GREENLED2, HIGH);
+            digitalWrite(GREENLED3, HIGH);              
+            digitalWrite(YELLOWLED1, HIGH);
+            digitalWrite(YELLOWLED2, HIGH);
+            digitalWrite(YELLOWLED3, HIGH);
+            digitalWrite(YELLOWLED4, HIGH);
+            digitalWrite(REDLED1, HIGH);
+            digitalWrite(REDLED2, HIGH);
+            digitalWrite(REDLED3, LOW);
+            break;
+          case 9:
+            digitalWrite(GREENLED1, HIGH);
+            digitalWrite(GREENLED2, HIGH);
+            digitalWrite(GREENLED3, HIGH);              
+            digitalWrite(YELLOWLED1, HIGH);
+            digitalWrite(YELLOWLED2, HIGH);
+            digitalWrite(YELLOWLED3, HIGH);
+            digitalWrite(YELLOWLED4, HIGH);
+            digitalWrite(REDLED1, HIGH);
+            digitalWrite(REDLED2, HIGH); 
+            digitalWrite(REDLED3, HIGH);
+            break;
+          case 10:
+            digitalWrite(GREENLED1, HIGH);
+            digitalWrite(GREENLED2, HIGH);
+            digitalWrite(GREENLED3, HIGH);              
+            digitalWrite(YELLOWLED1, HIGH);
+            digitalWrite(YELLOWLED2, HIGH);
+            digitalWrite(YELLOWLED3, HIGH);
+            digitalWrite(YELLOWLED4, HIGH);
+            digitalWrite(REDLED1, HIGH);
+            digitalWrite(REDLED2, HIGH); 
+            digitalWrite(REDLED3, HIGH);
+            break;           
+          }                     
+        }
+#endif        
+        bigPacket = false;        
+      }
+      else {
+        // Checksum Error
+      }  // end if else for checksum
+    } // end if read 0xAA byte
+  } // end if read 0xAA byte
+}
+</pre>
+<h2>DIAGRAM FOR <a href="https://www.pantechsolutions.net/module-ic-s/hc-05-bluetooth-module" style="color: #3495ba;">HC-05</a> WITH ARDUINO (WITH SKETCH)</h2>
+<h2>Method 2 for AT Commands</h2>
+<h2>Connection Diagram</h2>
+<p><br><br></p>
+<p><img alt="" src="Interfacing%20Mindwave%20Mobile%20with%20Arduino_files/connection-diagram-for-hch-arduino-with-sketch.jpg" style="display: block; margin-left: auto; margin-right: auto;" title="Diagram-for-HC-05-with-Arduino"></p>
+<p><br><br></p>
+<h2>Steps to Follow</h2>
+<p style="text-indent: 20px;">☞. Make connections as per the connection diagram.</p>
+<p style="text-indent: 20px;">☞. Program (Upload the sketch) the” <a href="https://www.pantechsolutions.net/module-ic-s/hc-05-bluetooth-module" style="color: #3495ba;">HC-05</a> with Arduino” source code to Arduino board using Arduino compiler</p>
+<p style="text-indent: 20px;">☞. Open the “Serial monitor” with buadrate of 9600.</p>
+<p style="text-indent: 20px;">☞. Type the AT commands and click Enter in Serial monitor</p>
+<h2>Serial Monitor Screen</h2>
+<p><img alt="" src="Interfacing%20Mindwave%20Mobile%20with%20Arduino_files/serial-monitor-screen-forrainwave-with-arduino.jpg" style="display: block; margin-left: auto; margin-right: auto;" title="Serial-Monitor-for-mindwave-mobile-with-arduino1"></p>
+<p></p>
+<h2>Program for <a href="https://www.pantechsolutions.net/module-ic-s/hc-05-bluetooth-module" style="color: #3495ba;">HC-05</a> with Arduino Board</h2>
+<p></p>
+<h3>Title: <a href="https://www.pantechsolutions.net/module-ic-s/hc-05-bluetooth-module" style="color: #3495ba;">HC-05</a> with Arduino</h3>
+<pre class="brush: js;">/*
+AUTHOR: Hazim Bitar (techbitar)
+DATE: Aug 29, 2013
+LICENSE: Public domain (use at your own risk)
+CONTACT: techbitar at gmail dot com (techbitar.com)
+
+*/
+
+#include 
+
+SoftwareSerial BTSerial(10, 11); // RX | TX
+
+void setup()
+{
+  pinMode(9, OUTPUT);  // this pin will pull the HC-05 pin 34 (key pin) HIGH to switch module to AT mode
+  digitalWrite(9, HIGH);
+  Serial.begin(9600);
+  Serial.println("Enter AT commands:");
+  BTSerial.begin(38400);  // HC-05 default speed in AT command more
+}
+
+void loop()
+{
+
+  // Keep reading from HC-05 and send to Arduino Serial Monitor
+  if (BTSerial.available())
+    Serial.write(BTSerial.read());
+
+  // Keep reading from Arduino Serial Monitor and send to HC-05
+  if (Serial.available())
+    BTSerial.write(Serial.read());
+}
+</pre>
+<h2>Reference Video Links</h2>
+<h3><a href="https://www.youtube.com/watch?v=8mdw7StdRUU&amp;feature=youtu.be" style="color: #3495ba;" target="_blank">Getting Started with </a><a href="https://www.pantechsolutions.net/sensors/brainwave-starter-kit-mindwave-mobile" style="color: #3495ba;">Mindwave mobile</a> Using MATLAB</h3></div>
+                    </div>
+                         
+                                                              <p></p>
+			       
+                   
+             </div>   
+    </form></div>
+</div>
+        <div class="clearer"></div>
+        <div class="no-display">
+            <input name="product" value="1070" type="hidden">
+            <input name="related_product" id="related-products-field" value="" type="hidden">
+        </div>
+    
+  </div>
+  <div class="related-contain" style="clear:both">
+   <div class="product-collateral row-fluid">
+        		
+		        	
+    </div>
+    
+  </div>
+  <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 materials-contain">
+      </div>
+
+
+   <script type="text/javascript"><!--
+/* Script removed by snapshot save */
+--></script>
+  <script><!--
+/* Script removed by snapshot save */
+--></script>
+</div>
+</div>
+
+<div style="width:100%;float:left;border:10px solid #4f4f4f;padding:20px;min-height: 620px;">
+<div style="float:left;width:49%; border-right:5px solid #4f4f4f;padding-right:15px;min-height: 620px;">
+
+<div class="yotpo yotpo-main-widget" data-product-id="1070" data-name="Interfacing Mindwave Mobile with Arduino" data-url="https://www.pantechsolutions.net/brain-computer-interface/interfacing-mindwave-mobile-with-arduino?___store=en&amp;___from_store=en" data-image-url="https://www.pantechsolutions.net/media/catalog/product/i/n/interfacing_mindwave_mobile_with_arduino.png" data-description="Mindwave mobile, Neuro sky is the manufacturer of Mindwave mobile. The NeuroSky biosensor platform provides a powerful foundation for the development of a variety of applications that promote Mind health such as improved focus, concentration, working memory and acuity. Other uses include meditation and relaxation monitoring or improved educational processes. Our low cost, complete OEM solution is a high-performance bio-signal on a single chip solution for accurate Mind activity detection and processing.">
+</div>
+
+</div>
+<div style="width:45%;float:right;margin-right:15px;">
+   <script src="Interfacing%20Mindwave%20Mobile%20with%20Arduino_files/plusone.js"></script>
+<div id="comments"></div>
+<script><!--
+/* Script removed by snapshot save */
+--></script>                         
+</div>
+</div>
+
+<script type="text/javascript"><!--
+/* Script removed by snapshot save */
+--></script>
+                                    </div>
+                                </div>
+                            </section></div>
+                        </div>
+                    </main></div>  
+                
+                                                </div>
+            
+        
+        <div class="footer-static-block">
+        <div class="container">
+            <div class="row">
+                            </div>
+        </div>
+    </div>
+<footer class="footer-wrapper">
+    <div class="footer-information">
+        <div class="container" style="border-bottom:1px solid #312f30">
+             <div class="footer-info-1 row">
+<div class="f-col f-col1 col-sm-3 col-md-3 col-sms-6 col-smb-12">
+<div class="footer-static-content">
+<div class="logo-bottom"><a href="#"><img alt="Pantech Solutions" src="Interfacing%20Mindwave%20Mobile%20with%20Arduino_files/footer-logo.png"></a></div>
+<div class="des">
+<p>Online Retail store for Trainer Kits,Lab equipment's,Electronic components,Sensors and open source hardware.</p>
+</div>
+<ul class="link-follow ">
+<li class="first"><a class="facebook fa fa-facebook" href="#"><span>facebook</span></a></li>
+<li><a class="twitter fa fa-twitter" href="#"><span>twitter</span></a></li>
+<li><a class="rss fa fa-rss" href="#"><span>rss</span></a></li>
+<li><a class="google fa fa-google-plus" href="#"><span>google+</span></a></li>
+<li class="last"><a class="pinterest fa fa-pinterest" href="#"><span>pinterest</span></a></li>
+</ul>
+</div>
+</div>
+<div class="desktop-menu f-col f-col2 col-sm-2 col-md-2 col-sms-6 col-smb-12">
+<div class="footer-static-title">
+<h3>More Information</h3>
+</div>
+<div class="footer-static-content">
+<ul>
+<li><a href="https://www.pantechsolutions.net/warranty-information/">Warranty Information</a></li>
+<li><a href="https://www.pantechsolutions.net/return-policy/">Return Policy</a></li>
+<li><a href="https://www.pantechsolutions.net/cancellation-order/">Cancellation Order</a></li>
+<li><a href="https://www.pantechsolutions.net/holidays/">holidays</a></li>
+<li><a href="https://www.pantechsolutions.net/terms-for-software/">Terms for Softwares</a></li>
+<li><a href="https://www.pantechsolutions.net/rohs/">rohs</a></li>
+<li><a href="https://www.pantechsolutions.net/dealership/">Dealership</a></li>
+<li><a href="https://www.pantechsolutions.net/shipping-policy/">Shipping Policy</a></li>
+</ul>
+</div>
+</div>
+<div class="desktop-menu f-col f-col3 col-sm-2 col-md-2 col-sms-6 col-smb-12">
+<div class="footer-static-title">
+<h3>Company</h3>
+</div>
+<div class="footer-static-content">
+<ul>
+<li><a href="https://www.pantechsolutions.net/about-us/">About Us</a></li>
+<li><a href="https://www.pantechsolutions.net/terms-of-use/">Terms of use</a></li>
+<li><a href="https://www.pantechsolutions.net/privacy-policy/">Privacy policy</a></li>
+<li><a href="https://www.pantechsolutions.net/terms-and-conditions/">Terms &amp; Conditions</a></li>
+<li><a href="https://www.pantechsolutions.net/careers/">Careers</a></li>
+<li><a href="https://www.pantechsolutions.net/events/">Events</a></li>
+<li><a href="https://www.pantechsolutions.net/site-map/">SiteMap</a></li>
+<li><a href="https://www.pantechsolutions.net/contact-us/">Contact us</a></li>
+</ul>
+</div>
+</div>
+<div class="desktop-menu f-col f-col4 col-sm-2 col-md-2 col-sms-6 col-smb-12">
+<div class="footer-static-title">
+<h3>Resources</h3>
+</div>
+<div class="footer-static-content">
+<ul>
+<ul>
+<li><a href="https://www.pantechsolutions.net/blog/">Blog</a></li>
+<!--li><a href="https://www.pantechsolutions.net/forum/">Forum</a></li-->
+<li><a href="http://youtube.com/user/pantechsolutions">Videos</a></li>
+<li><a href="http://www.slideshare.net/pantechsolutions">Presentations</a></li>
+</ul>
+</ul>
+</div>
+</div>
+<div id="cssmenu">
+<ul>
+<li class="active has-sub"><a href="#"><span>More Information</span></a>
+<div class="ftr-acc-content">
+<ul>
+<li><a href="#">Warranty Information</a></li>
+<li><a href="#">Return Policy</a></li>
+<li class="first"><a href="#">Cancellation Order</a></li>
+<li><a href="#">Holidays</a></li>
+<li><a href="#">Terms for Softwares</a></li>
+<li><a href="#">RoHS</a></li>
+<li><a href="#">Dealership</a></li>
+<li class="last"><a href="#">Shipping Policy</a></li>
+</ul>
+</div>
+</li>
+<li class="active has-sub"><a href="#"><span>Company</span></a>
+<div class="ftr-acc-content">
+<ul>
+<li class="first"><a href="#">About Us</a></li>
+<li><a href="#">Terms of use</a></li>
+<li><a href="#">Privacy policy</a></li>
+<li><a href="#">Terms &amp; Conditions</a></li>
+<li><a href="#">Careers</a></li>
+<li><a href="#">Events</a></li>
+<li><a href="#">SiteMap</a></li>
+<li><a href="#">Contact us</a></li>
+<li><a href="#">Pantech ProLabs Team</a></li>
+<li class="last"><a href="#">CRM Login</a></li>
+</ul>
+</div>
+</li>
+<li class="active has-sub"><a href="#"><span>Resources</span></a>
+<div class="ftr-acc-content">
+<ul>
+<li><a href="#">blog</a></li>
+<!--li><a href="#">forum</a></li-->
+<li><a href="#">videos</a></li>
+<li><a href="#">buying-guides</a></li>
+<li><a href="#">news-Letters</a></li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="f-col f-col5 col-sm-3 col-sms-6 col-sm-3 col-smb-12"></div>
+</div>
+<script type="application/ld+json"><!--
+--></script>        </div>
+    </div>
+	
+	 <div class="footer-tags">
+        <div class="container">
+             <h3>Boards and Starter Kits</h3>
+<p><span class="tag-title">8051 Boards :</span> <a href="https://www.pantechsolutions.net/microcontroller-boards/8051-development-board">8051 Development Board</a> | <a href="https://www.pantechsolutions.net/microcontroller-boards/8051-lab-trainer-kit">8051 Trainer Kit</a> | <a href="https://www.pantechsolutions.net/microcontroller-boards/8051-project-board"> 8051 Project Board</a></p>
+<p><span class="tag-title">PIC Boards :</span> <a href="https://www.pantechsolutions.net/microcontroller-boards/pic-development-board">PIC16F877A Development Board</a> | <a href="https://www.pantechsolutions.net/microcontroller-boards/pic-advanced-development-board" title="PIC Advanced Development board">PIC Advanced Development board</a></p>
+<p><span class="tag-title">AVR Boards :</span> <a href="https://www.pantechsolutions.net/microcontroller-boards/avr-development-board"> AVR Development Board</a> </p>
+<p><span class="tag-title">ARM Boards :</span> <a href="https://www.pantechsolutions.net/microcontroller-boards/arm7-trainer-kit"> LPC2148 Starter Kit </a>|<a href="https://www.pantechsolutions.net/microcontroller-boards/arm7-development-board"> ARM Development Board</a> | <a href="https://www.pantechsolutions.net/microcontroller-boards/arm-9-development-board">ARM9 Development Board</a></p>
+<p><span class="tag-title">PSOC Boards :</span> <a href="https://www.pantechsolutions.net/microcontroller-boards/psoc4-pioneer-kit"> PsOC Pioneer Kit</a> | <a href="https://www.pantechsolutions.net/microcontroller-boards/psoc3-development-board">PsOC Development Board</a></p>
+<p><span class="tag-title">FPGA Boards :</span> <a href="https://www.pantechsolutions.net/cpld-fpga-boards/spartan3an-fpga-project-kit">FPGA Starter Kit</a> | <a href="https://www.pantechsolutions.net/cpld-fpga-boards/spartan6-fpga-project-board">FPGA Development Board</a> | <a href="https://www.pantechsolutions.net/cpld-fpga-boards/fpga-universal-development-board">FPGA Universal Development Board</a></p>
+<p><span class="tag-title">DSP Floating point Boards :</span> <a href="https://www.pantechsolutions.net/dsp-dsc-boards/tms320f2812-dsp-development-board"> TMS320F2812 Development Board</a> | <a href="https://www.pantechsolutions.net/dsp-dsc-boards/tms320c6745-dsp-trainer-kit">TMS320C6745 DSP Trainner Kit</a> | <a href="https://www.pantechsolutions.net/dsp-dsc-boards/tms320f28335-dsp-development-board">TMS320F28335 Development Board</a></p>
+<p><span class="tag-title">DSP Fixed point Boards :</span> <a href="https://www.pantechsolutions.net/dsp-dsc-boards/tms320c5505-dsp-development-board">TMS320C5505 Development Board</a></p>
+<p><span class="tag-title">MSP430 Boards :</span><a href="https://www.pantechsolutions.net/microcontroller-boards/msp430-launchpad"> MSP430 Launchpad</a> | <a href="https://www.pantechsolutions.net/microcontroller-boards/msp430-development-board">MSP430 Development Board</a></p>
+<p><span class="tag-title">Arduino Boards :</span> Arduino UNO | Arduino Basic Kit | Netduino | Arduino Due | Arduino ADK</p>
+<p><span class="tag-title">Raspberry PI :</span> Raspberry Pi 3| Rapserry Pi Accessories</p>
+<p><span class="tag-title">Wireless Communication Boards :</span> <a href="https://www.pantechsolutions.net/wireless-boards/sim900a-gsm-modem">GSM Modem</a> | <a href="https://www.pantechsolutions.net/wireless-boards/zigbee-module-with-base-board"> Zigbee Board</a> | <a href="https://www.pantechsolutions.net/module-ic-s/wi-fi-proto-board">WiFI Board</a> | <a href="https://www.pantechsolutions.net/wireless-boards/hc-05-bluetooth-module-with-base-board">Bluetooth Board</a></p>
+<p><span class="tag-title">Wired Communication Boards :</span> <a href="https://www.pantechsolutions.net/interface-cards/serial-ethernet-card">SPI to Ethernet Interface</a></p>
+<p><span class="tag-title">Wearable Technology :</span> <a href="https://www.pantechsolutions.net/sensors/brainwave-starter-kit">Neurosky Mindwave Mobile : Brainwave Starter Kit</a></p>
+<p><span class="tag-title">Accessory Boards : </span><a href="https://www.pantechsolutions.net/wireless-boards/l80-gps-module-with-baseboard">GPS Board</a></p>
+<p><span class="tag-title">Modules :</span> <a href="https://www.pantechsolutions.net/module-ic-s/m10-gsm-module">GSM Modules</a> | <a href="https://www.pantechsolutions.net/wireless-boards/gps-module">GPS Modules</a> | <a href="https://www.pantechsolutions.net/module-ic-s/hc-05-bluetooth-module">Bluetooth Modules</a> | <a href="https://www.pantechsolutions.net/wireless-boards/esp8266-wifi-module">WIFI Modues</a> | <a href="https://www.pantechsolutions.net/module-ic-s/rf-module-433-mhz">RF Modules</a></p>
+<p><span class="tag-title">Sensors :</span> <a href="https://www.pantechsolutions.net/sensors/hm2007-speech-recognition">HM2007 Speech Recognition</a> | <a href="https://www.pantechsolutions.net/sensors/gesture-recognition">Gesture Recognition</a> | <a href="https://www.pantechsolutions.net/sensors/brainsense">Brain Computer Interface</a> | <a href="https://www.pantechsolutions.net/sensors/brainsense">Brainsense</a></p>
+<p><span class="tag-title">Programmers and Emulators :</span><a href="https://www.pantechsolutions.net/xilinx-platform-usb-download-cable"> Xilinx platform usb download cable</a>|<a href="https://www.pantechsolutions.net/fpga-jtag-programmer">FPGA JTAG Programmer</a></p>
+<p><span class="tag-title">Robotics :</span> <a href="https://www.pantechsolutions.net/robotics/line-follower-robot">Line Follower Robot</a> | <a href="https://www.pantechsolutions.net/robotics/gesture-control-robot">Gesture Controlled Robot</a> | <a href="https://www.pantechsolutions.net/robotics/owi-robot-arm">Robotic ARM</a> | <a href="https://www.pantechsolutions.net/robotics-projects/android-controlled-arduino-robot-car">Android Controlled Robot</a></p>
+<p><span class="tag-title">Motor Drives :</span> <a href="https://www.pantechsolutions.net/power-electronics-and-drives/pmsm-motor-control-using-dspic">PMSM Motor Drive</a> | <a href="https://www.pantechsolutions.net/power-electronics-and-drives/bldc-motor-control-using-dspic">BLDC Motor Drive</a> | <a href="https://www.pantechsolutions.net/power-electronics-and-drives/three-phase-induction-motor-control-using-dspic">Three Phase Induction Motor Drive</a> | <a href="https://www.pantechsolutions.net/power-electronics-and-drives/switched-reluctance-motor-control-using-dspic">SRM Motor Drive</a> | <a href="https://www.pantechsolutions.net/power-electronics-and-drives/stepper-motor-control-using-dspic">Stepper Motor Drive</a></p>
+<p><span class="tag-title">Motors :</span> <a href="https://www.pantechsolutions.net/motors/pmsm-motor">PMSM Motor</a> | <a href="https://www.pantechsolutions.net/motors/bldc-motor">BLDC Motor</a> | <a href="https://www.pantechsolutions.net/motors/ac-servo-motor">Servo Motor</a> | <a href="https://www.pantechsolutions.net/motors/three-phase-induction-motor">Three Phase Induction Motor</a> |</p>
+<h3>Projects and Resources</h3>
+<p><span class="tag-title">ECE Mini Projects :</span> <a href="https://www.pantechsolutions.net/8051-projects">8051 Projects</a> | <a href="https://www.pantechsolutions.net/arm7-projects">ARM Projects</a> | <a href="https://www.pantechsolutions.net/fpga-projects">FPGA Projects</a> | <a href="https://www.pantechsolutions.net/vlsi-projects">VLSI Projects</a> | <a href="https://www.pantechsolutions.net/vhdl-projects">VHDL Projects</a> |<a href="https://www.pantechsolutions.net/robotics-projects">Robotics Projects</a></p>
+<p><span class="tag-title">EEE Mini Projects:</span> Electrical Projects | Simulink Projects</p>
+<p><span class="tag-title">DIP Projects :</span> <a href="https://www.pantechsolutions.net/image-processing-projects">Image Processing Projects</a> | <a href="https://www.pantechsolutions.net/video-processing-projects">Video Processing Projects</a></p>
+<h3>Projects and Resources</h3>
+<p><span class="tag-title">Microcontrollers IC'S :</span> <a href="https://www.pantechsolutions.net/p89v51rd2">P89V51RD2</a> | <a href="https://www.pantechsolutions.net/at89s51">AT89S51</a> | <a href="https://www.pantechsolutions.net/microcontrollers-ic-s/lpc2148">LPC2148</a> | <a href="https://www.pantechsolutions.net/microcontrollers-ic-s/lpc2929">LPC2929</a></p>
+<p><span class="tag-title">Display devices :</span><a href="https://www.pantechsolutions.net/common-anode">Seven segment -Common Anode</a> | <a href="https://www.pantechsolutions.net/common-cathode">Seven segment-Common Cathode</a> | 2.5 inch TFT | 3.5 inch TFT | Seven Segment Display | LED</p>
+<p><span class="tag-title">Connectors :</span> <a href="https://www.pantechsolutions.net/usb-mini-b-smd-connector">USB Mini-B SMD Connector</a> | <a href="https://www.pantechsolutions.net/db9-female-cable-connector">DB9 FEMALE CABLE CONNECTOR</a></p>				
+        </div>
+    </div>
+    <div class="footer-container">
+        <div class="container">
+                    <div class="footer">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-6">
+                                								<ul class="links">
+<ul class="links">
+<li class="first"><a title="Terms of use" href="#">Policies: Terms of use</a></li>
+<li><a title="Security" href="#">Security</a></li>
+<li class="last"><a title="Privacy" href="#">Privacy</a></li>
+</ul>
+</ul>                                <address class="copyright">Copyright © 2017 by Pantech Solutions. All Rights Reserved.</address>
+                            </div>
+                            <div class="col-xs-12 col-sm-6">
+                                <ul class="social">
+<li class="first"><a class="social" href="#"><img alt="Payment Option" src="Interfacing%20Mindwave%20Mobile%20with%20Arduino_files/paymentOption.png"></a></li>
+
+</ul>                            </div>
+                        </div>
+                        
+                    </div>
+            </div>
+        </div>
+    <div id="back-top" class="hidden-xs" style="display: none;"><i class="fa fa-angle-up"></i></div>
+	
+</footer>
+
+<!-- Start of HubSpot Embed Code -->
+  <script type="text/javascript" id="hs-script-loader" async="" defer="defer" src="Interfacing%20Mindwave%20Mobile%20with%20Arduino_files/579306-1.js"></script>
+<!-- End of HubSpot Embed Code -->
+
+<script async=""><!--
+/* Script removed by snapshot save */
+--></script>
+                
+
+<!-- Universal Analytics Start -->
+<!-- Universal Analytics End -->
+
+<!-- Product hit template -->
+<script type="text/template" id="autocomplete_products_template"><!--
+--></script><!-- Category hit template -->
+<script type="text/template" id="autocomplete_categories_template"><!--
+--></script><!-- Page hit template -->
+<script type="text/template" id="autocomplete_pages_template"><!--
+--></script><!-- Extra attribute hit template -->
+<script type="text/template" id="autocomplete_extra_template"><!--
+--></script><!-- Suggestion hit template -->
+<script type="text/template" id="autocomplete_suggestions_template"><!--
+--></script><!-- General autocomplete menu template -->
+<script type="text/template" id="menu-template"><!--
+--></script>
+<!-- Instantsearch wrapper template -->
+<script type="text/template" id="instant_wrapper_template"><!--
+--></script>
+<!-- Product hit template -->
+<script type="text/template" id="instant-hit-template"><!--
+--></script><!-- Search statistics template (used for displaying hits' count and time of query) -->
+<script type="text/template" id="instant-stats-template"><!--
+--></script><!-- Refinements lists item template -->
+<script type="text/template" id="refinements-lists-item-template"><!--
+--></script><!-- Current refinements template -->
+<script type="text/template" id="current-refinements-template"><!--
+--></script>
+<!-- Anaraky GDRT v.1.0.9 script begin -->
+<script type="text/javascript"><!--
+/* Script removed by snapshot save */
+--></script>
+<script type="text/javascript" src="Interfacing%20Mindwave%20Mobile%20with%20Arduino_files/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/0/?value=0&amp;guid=ON&amp;script=0&amp;data=ecomm_prodid%3DMindwave-Mobile-with-Arduino-MiniProject%3Becomm_pagetype%3Dproduct%3Becomm_totalvalue%3D0"/>
+</div>
+</noscript>
+<!-- Anaraky GDRT script end -->
+           
+
+<script type="text/javascript" src="Interfacing%20Mindwave%20Mobile%20with%20Arduino_files/5441.js" async="async"></script> 
+
+<div id="overlay" style="display: none;"></div><div id="lightbox" style="display: none;"><div id="outerImageContainer" style="width: 250px; height: 250px;"><div id="imageContainer" style="padding: 10px"><img id="lightboxImage"><div id="hoverNav"><a id="prevLink" href="#"></a><a id="nextLink" href="#"></a></div><div id="loading"><a id="loadingLink" href="#"><img src="Interfacing%20Mindwave%20Mobile%20with%20Arduino_files/loading.gif"></a></div></div></div><div id="imageDataContainer"><div id="imageData"><div id="imageDetails"><span id="caption"></span><span id="numberDisplay"></span></div><div id="bottomNav"><a id="bottomNavClose" href="#"><img src="Interfacing%20Mindwave%20Mobile%20with%20Arduino_files/closelabel.gif"></a></div></div></div></div><div id="wraper_ajax" class="loadding_ajaxcart"><i class="fa fa-spinner fa-spin"></i></div><div style="display:none;" class="wrapper_inboxCart"></div><div class="igtranslator-main-div" style="display: none; width: 0px; height: 0px;"><iframe src="Interfacing%20Mindwave%20Mobile%20with%20Arduino_files/unnamed.html" class="igtranslator-iframe" scrolling="no" frameborder="0"></iframe></div><div class="igtranslator-activator-icon bounceIn" style="background-image: url(&quot;urn:not-loaded:resource://jid1-dgnibwqga0sibw-at-jetpack/data/icons/home.png&quot;); display: none;" title="Click to Show Translation"></div><noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1383608971702087&ev=PageView&noscript=1"/></noscript><div class="crisp-client"><div class="crisp-1u69i93"><style type="text/css"><!--
+/* Effective stylesheet produced by snapshot save */
+.crisp-client .crisp-6k5puw .crisp-5ww6wc, .crisp-client .crisp-6k5puw .crisp-1as00um:hover { color: rgb(255, 255, 255) !important; -webkit-text-fill-color: rgb(255, 255, 255) !important; }
+.crisp-client .crisp-6k5puw .crisp-az024n, .crisp-client .crisp-6k5puw .crisp-3qaet4:hover { color: rgb(33, 102, 204) !important; -webkit-text-fill-color: rgb(33, 102, 204) !important; }
+.crisp-client .crisp-6k5puw .crisp-djnmzm { color: rgb(110, 155, 222) !important; -webkit-text-fill-color: rgb(110, 155, 222) !important; }
+.crisp-client .crisp-6k5puw .crisp-ukuhcj, .crisp-client .crisp-6k5puw .crisp-f1id2w::before, .crisp-client .crisp-6k5puw .crisp-f1id2w::after { background-color: rgb(55, 127, 234) !important; }
+.crisp-client .crisp-6k5puw .crisp-1cb25cy { background-image: linear-gradient(-180deg, rgba(245, 248, 251, 0) 0%, rgba(245, 248, 251, 0.25) 40%) !important; }
+.crisp-client .crisp-6k5puw .crisp-niopnu, .crisp-client .crisp-6k5puw .crisp-1czu9i8:hover, .crisp-client .crisp-6k5puw .crisp-1ptyjir::before, .crisp-client .crisp-6k5puw .crisp-1ptyjir::after { border-color: rgb(55, 127, 234) !important; }
+.crisp-client .crisp-6k5puw .crisp-nrzfu0::-moz-placeholder { color: rgb(110, 155, 222) !important; -webkit-text-fill-color: rgb(110, 155, 222) !important; }
+.crisp-client .crisp-6k5puw .crisp-pzfoa7::-moz-placeholder { color: rgb(110, 155, 222) !important; -webkit-text-fill-color: rgb(110, 155, 222) !important; }
+.crisp-client .crisp-6k5puw .crisp-1niq5o9 { box-shadow: 0px 3px 12px 0px rgba(10, 71, 162, 0.176) !important; }
+.crisp-client .crisp-6k5puw .crisp-64ndqs { box-shadow: 0px 3px 10px 0px rgba(110, 155, 222, 0.176) !important; }
+.crisp-client .crisp-6k5puw .crisp-4zcae9:hover { box-shadow: 0px 4px 18px 0px rgba(110, 155, 222, 0.25) !important; }
+.crisp-client .crisp-6k5puw .crisp-qm3u92::-moz-selection, .crisp-client .crisp-6k5puw .crisp-qm3u92 *::-moz-selection { background-color: rgb(187, 222, 251) !important; }
+--></style></div><div dir="ltr" data-blocked-page="false" data-blocked-locale="false" data-lock-maximized="false" data-last-operator-face="false" data-availability-tooltip="false" data-hide-on-away="false" data-hide-on-mobile="false" data-position-reverse="false" data-availability="away" data-is-activity-ongoing="false" data-was-availability-online="false" data-has-local-messages="false" class="crisp-6k5puw" data-full-view="false" data-small-view="false" data-large-view="true" lang="en"><div class="crisp-4n0wrv crisp-qm3u92"><a data-maximized="false" data-is-failure="false" href="#" class="crisp-113f7m5" data-cshid="134a6fe8-2d90-da68-0537-36e2a390403f"><span class="crisp-130va1r"><span data-id="general_entice" class="crisp-1juw0zy" style="display: block !important;"><span class="crisp-1l0aq6o"><span class="crisp-vmrucd crisp-1hzjrty crisp-1niq5o9 crisp-1cb25cy"><span class="crisp-1ad40xt"></span><span class="crisp-y77lo3"><span class="crisp-hhj1my"><span class="crisp-1fe3n1w crisp-1aboypu"><span style="background-image: url('Interfacing%20Mindwave%20Mobile%20with%20Arduino_files/240.jpg') !important;" class="crisp-1yrnq4l crisp-55dkw"></span></span></span><span class="crisp-13889q0"><span class="crisp-1h8x4ro"><span class="crisp-1hcw7p crisp-561mbi">pantech solutions Team</span><span data-id="online" class="crisp-r8ru4x crisp-5ww6wc crisp-561mbi">Online</span></span><span class="crisp-z60d9d crisp-1hzjrty">Questions? Chat with us!</span></span><span class="crisp-agxvsz"></span></span><span class="crisp-ymn4qv crisp-64ndqs crisp-4zcae9"><span class="crisp-18y5dom crisp-1hzjrty crisp-djnmzm crisp-3qaet4">Ask us anything you want to know...<span class="crisp-1wqim0o"><span class="crisp-1ifjbs3"><span data-variant="inactive" class="crisp-11687pr crisp-1klc1nq crisp-niopnu"><span class="crisp-pyrhvf"><span class="crisp-1h1jkqg crisp-f1id2w"></span><span class="crisp-qvzqay crisp-1ptyjir"></span></span></span><span class="crisp-11687pr crisp-1quokxy crisp-niopnu crisp-f1id2w"></span></span></span></span></span></span><span class="crisp-be1lj6"><span class="crisp-14uwd4e crisp-1qp4b2l"></span><span class="crisp-14uwd4e crisp-14t0zod"></span><span class="crisp-agxvsz"></span></span></span></span></span><span class="crisp-k30d4h crisp-ukuhcj"><span data-id="chat_closed" class="crisp-16lwunj"><span data-is-ongoing="false" class="crisp-n2psp0"></span></span></span></a></div></div></div></body></html>
