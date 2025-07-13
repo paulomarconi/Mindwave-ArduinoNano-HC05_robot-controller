@@ -8,5 +8,3 @@ Characteristics:
 - Integrated L293D TTL.
 - Connector for HC05 module.
 - The schematic and PCB design are made in Proteus.
-
-
