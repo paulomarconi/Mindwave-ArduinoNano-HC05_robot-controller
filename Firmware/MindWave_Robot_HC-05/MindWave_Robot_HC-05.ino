@@ -7,6 +7,7 @@
 
 // Modified by Paulo Loma Marconi 30/08/2015
 
+
 #define qualityLed  19
 #define BAUDRATE    57600
 #define DEBUGOUTPUT 0
